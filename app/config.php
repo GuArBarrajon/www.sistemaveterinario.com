@@ -13,6 +13,8 @@ try{
     echo "Error en la conexión con la base de datos";
 }
 
-
 $URL= "http://localhost/www.sistemaveterinario.com/";
+
+date_default_timezone_set("America/Argentina/Buenos_Aires");
+$fechaHora = date(format:'Y-m-d H:i:s');
 ?>

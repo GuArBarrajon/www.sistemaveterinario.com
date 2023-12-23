@@ -21,6 +21,10 @@ if(!isset($_SESSION['session email'])){
   <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $URL;?>/Templates/dist/css/adminlte.min.css">
+  <!-- jQuery -->
+  <script src="<?php echo $URL;?>/Templates/plugins/jquery/jquery.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

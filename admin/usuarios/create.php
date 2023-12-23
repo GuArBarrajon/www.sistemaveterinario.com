@@ -10,9 +10,9 @@ include("../layout/parte1.php");
             <div class="card card-outline card-primary" style="background-color: rgb(225, 225, 255);">
                 <div class="card-header">
                     <h3 class="card-title"><b>Datos del Usuario</b></h3>
-
-                </div>
+                </div>    
                 <div class="card-body">
+                   
                     <form action="<?php echo $URL;?>/app/controllers/Usuarios/crear_usuario.php" method="post">
                         <div class="row">
                             <div class="col-md-6">
@@ -71,5 +71,6 @@ include("../layout/parte1.php");
 </div>
 
 <?php
-include("../layout/parte2.php");      
+include("../layout/parte2.php");    
+include("../layout/mensaje.php");
 ?>

@@ -27,9 +27,11 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
                         </thead>
                         <tbody>
                             <?php
+                            $contador = 0;
                             foreach($usuarios as $usuario){
+                                $contador = $contador + 1;
                                 echo '<tr>';
-                                echo '<td>'.$usuario['id_usuario'].'</td>';
+                                echo '<td>'.$contador.'</td>';
                                 echo '<td>'.$usuario['nombres'].'</td>';
                                 echo '<td>'.$usuario['apellido'].'</td>';
                                 echo '<td>'.$usuario['email'].'</td>';
@@ -54,5 +56,6 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
 </div>
 
 <?php
-include("../layout/parte2.php");      
+include("../layout/parte2.php");
+include("../layout/mensaje.php");      
 ?>

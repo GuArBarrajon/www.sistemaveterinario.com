@@ -10,8 +10,7 @@
   </footer>
 </div>
 
-<!-- jQuery -->
-<script src="<?php echo $URL;?>/Templates/plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="<?php echo $URL;?>/Templates/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
