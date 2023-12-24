@@ -4,6 +4,18 @@ session_start();
 if(!isset($_SESSION['session email'])){
   header('Location: '.$URL.'/login');
 }
+else{
+  $emailSesion = $_SESSION['session email'];
+  $sql = "SELECT * FROM usuarios WHERE email = '$emailSesion'";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $usuarios = $query->fetchAll();
+  foreach($usuarios as $usuario){
+    $idUsuarioSesion = $usuario['id_usuario'];
+  }
+}
+
+
 
 ?>
 <!DOCTYPE html>

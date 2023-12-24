@@ -36,8 +36,9 @@ function ceros($numero) {
                         <div class="row">
                         <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="codigo">Código*</label>
-                                    <input type="text" class="form-control" name="codigo" value="p<?= ceros($contador); ?>" disabled>
+                                    <label for="codigo">Código</label>
+                                    <input type="text" class="form-control" value="p<?= ceros($contador); ?>" disabled>
+                                    <input type="text" class="form-control" name="codigo" value="p<?= ceros($contador); ?>" hidden>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -49,13 +50,13 @@ function ceros($numero) {
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="adescripcion">Descripción</label>
-                                    <input type="text" class="form-control" name="descripción">
+                                    <input type="text" class="form-control" name="descripcion">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="imagen">Imagen</label>
-                                    <input type="file" class="form-control" name="imagen" id="file">
+                                    <label for="file">Imagen</label>
+                                    <input type="file" class="form-control" name="file" id="file">
                                     <!--salida donde muestra la imagen-->
                                     <output id="list"></output>
                                 </div>
@@ -96,6 +97,7 @@ function ceros($numero) {
                                     <input type="date" class="form-control" name="fechaIngreso" required>
                                 </div>
                             </div>
+                            <input type="text" value="<?= $idUsuarioSesion;?>" name="idUsuario" hidden>
 
                             
                             <div class="row">
