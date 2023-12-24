@@ -1,36 +1,38 @@
 <?php
 include("../../app/config.php");
 include("../layout/parte1.php");
+
+$id_usuario = $_GET['id_usuario'];
+include("../../app/controllers/Usuarios/ver_datos.php");
 ?>
 
 <div class="container-fluid pt-4">
-    <h1>Registro de Nuevo Usuario</h1>
+    <h1>Usuario <?php echo $nombres." ".$apellido?></h1>
     <div class="row">
         <div class="col-md-6">
-            <div class="card card-outline card-primary" style="background-color: rgb(225, 225, 255);">
+            <div class="card card-outline card-success" style="background-color: rgb(225, 255, 225);">
                 <div class="card-header">
                     <h3 class="card-title"><b>Datos del Usuario</b></h3>
                 </div>    
                 <div class="card-body">
-                   
-                    <form action="<?php echo $URL;?>/app/controllers/Usuarios/crear_usuario.php" method="post">
+                    <form action="<?php echo $URL;?>/app/controllers/Usuarios/actualizar_datos.php" method="post">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="nombres">Nombres*</label>
-                                    <input type="text" class="form-control" name="nombres">
+                                    <input type="text" class="form-control" name="nombres" value="<?php echo $nombres?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="apellido">Apellido*</label>
-                                    <input type="text" class="form-control" name="apellido">
+                                    <input type="text" class="form-control" name="apellido" value="<?php echo $apellido?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Correo*</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <label for="email">Correo</label>
+                                    <input type="email" class="form-control" name="email" value="<?php echo $email?>" disabled>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -48,17 +50,28 @@ include("../layout/parte1.php");
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="cargo">Cargo*</label>
-                                    <select id="" class="form-control" name="cargo">
-                                        <option value="administrador">Administrador</option>
-                                        <option value="cliente">Cliente</option>
+                                    <select id="" class="form-control" name="cargo" value="<?php echo $cargo?>" required>
+                                        <?php
+                                        if($cargo == "administrador"){?>
+                                            <option value="administrador">Administrador</option>
+                                            <option value="cliente">Cliente</option><?php
+                                        }
+                                        else{?>
+                                            <option value="cliente">Cliente</option>
+                                            <option value="administrador">Administrador</option><?php
+                                        }
+                                        ?>   
                                     </select>
                                 </div> 
+                            </div>
+                            <div>
+                                <input type="text" value="<?php echo $id_usuario?>" name="id_usuario" hidden>
                             </div>
                             
                             <div class="row">
                             <div class="col-md-12 p-4">
-                                <a href="<?php echo $URL;?>/admin" class="btn btn-secondary m-1">Cancelar</a>
-                                <input type="submit" class="btn btn-primary m-1" value="Guardar">
+                                <a href="<?php echo $URL;?>/admin/usuarios" class="btn btn-secondary m-1">Cancelar</a>
+                                <input type="submit" class="btn btn-success m-1" value="Actualizar">
                             </div>
                             </div>
                         </div>

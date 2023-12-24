@@ -14,9 +14,9 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
 
                 </div>
                 <div class="card-body" style="display: block;">
-                    <table class="table table-responsive table-striped table-bordered table-hover">
+                    <table id="example1" class="table table-striped table-bordered table-hover">
                         <thead>
-                            <tr>
+                            <tr style="text-align: center;">
                                 <th>Nro</th>
                                 <th>Nombres</th>
                                 <th>Apellido</th>
@@ -30,17 +30,18 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
                             $contador = 0;
                             foreach($usuarios as $usuario){
                                 $contador = $contador + 1;
+                                $id_usuario = $usuario['id_usuario'];
                                 echo '<tr>';
                                 echo '<td>'.$contador.'</td>';
                                 echo '<td>'.$usuario['nombres'].'</td>';
                                 echo '<td>'.$usuario['apellido'].'</td>';
                                 echo '<td>'.$usuario['email'].'</td>';
                                 echo '<td>'.$usuario['cargo'].'</td>';?>
-                                <td>
+                                <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-info">Ver</button>
-                                        <button type="button" class="btn btn-success">Editar</button>
-                                        <button type="button" class="btn btn-danger">Borrar</button>
+                                        <a href="show.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-info" title="Ver"><i class="bi bi-eye"></i></a>
+                                        <a href="update.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-success" title="Editar"><i class="bi bi-pencil"></i></a>
+                                        <a href="delete.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-danger" title="Borrar"><i class="bi bi-trash"></i></a>
                                     </div>
                                 </td>
                                 <?php
@@ -59,3 +60,50 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
 include("../layout/parte2.php");
 include("../layout/mensaje.php");      
 ?>
+
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "pageLength": 5,
+            "language": {
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
+                "infoFiltered": "(Filtrado de _MAX_ total Usuarios",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Usuarios",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscador:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            "responsive": true, "lengthChange": true, "autoWidth": false,
+            buttons: [
+                {
+                    extend: "collection",
+                    text: "Reportes",
+                    orientation: "landscape",
+                    buttons: [
+                        { text: "Copiar", extend: "copy"}, 
+                        { extend: "pdf" }, 
+                        { extend: "csv" }, 
+                        { extend: "excel" }, 
+                        { text: "Imprimir", extend: "print"}
+                    ]
+                },
+                {
+                    extend: "colvis",
+                    text: "Visor de columnas"
+                }
+            ],
+        }).buttons().container().appendTo("#example1_wrapper .col-md-6:eq(0)");
+    });
+
+</script>
