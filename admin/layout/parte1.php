@@ -12,6 +12,8 @@ else{
   $usuarios = $query->fetchAll();
   foreach($usuarios as $usuario){
     $idUsuarioSesion = $usuario['id_usuario'];
+    $nombreUsuarioSesion = $usuario['nombres'];
+    $cargoUsuarioSesion = $usuario['cargo'];
   }
 }
 
@@ -102,7 +104,7 @@ else{
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: rgb(60, 15, 102);">
     <!-- Brand Logo -->
-    <a href="<?php echo $URL;?>/Templates/index3.html" class="brand-link">
+    <a href="<?php echo $URL;?>" class="brand-link" target="_blank">
         <img src="<?php echo $URL;?>/Images/pata.ico" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><?php echo APP_NAME;?></span>
     </a>
@@ -114,7 +116,7 @@ else{
             <div class="info">
             <a>
             <p class="d-block">Bienvenido</p>
-            <p>nombre de la sesion</p></a>
+            <p><?=$nombreUsuarioSesion; ?></p></a>
             </div>
         </div>
 

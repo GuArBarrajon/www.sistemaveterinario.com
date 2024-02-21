@@ -6,7 +6,7 @@
 
   <!-- Main Footer -->
   <footer class="main-footer" style="background-color: rgb(76, 15, 102); text-align: center;">
-    <strong>Copyright &copy; 2023.</strong> All rights reserved.
+    <strong>Copyright &copy; 2024.</strong> All rights reserved.
   </footer>
 </div>
 

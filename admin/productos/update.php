@@ -48,19 +48,19 @@ include("../../app/controllers/productos/ver_datos_prod.php");
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="stock">Stock*</label>
-                                    <input type="number" class="form-control" name="stock" value="<?= $stock; ?>" required>
+                                    <input type="number" class="form-control" name="stock" value="<?= $stock; ?>" min="0" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="stockMin">Stock Mínimo*</label>
-                                    <input type="number" class="form-control" name="stockMin" value="<?= $stockMin; ?>" required>
+                                    <input type="number" class="form-control" name="stockMin" value="<?= $stockMin; ?>" min="0" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="stockMax">Stock Máximo*</label>
-                                    <input type="number" class="form-control" name="stockMax" value="<?= $stockMax; ?>" required>
+                                    <input type="number" class="form-control" name="stockMax" value="<?= $stockMax; ?>" min="0" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -99,6 +99,8 @@ include("../../app/controllers/productos/ver_datos_prod.php");
                                     <input type="text" class="form-control" name="idUsuario" value="<?php echo $nombreUsuario?>" disabled>
                                 </div>
                             </div>
+                            <input type="text" value="<?= $id_producto ?>" name="id_producto" hidden>
+                            <input type="text" value="<?= $imagen ?>" name="imagen" hidden>
 
                             
                             <div class="row">

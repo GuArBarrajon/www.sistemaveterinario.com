@@ -1,74 +1,8 @@
-<!doctype html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Centro Veterinario</title>
-        <!--Favicon-->
-        <link rel="shortcut icon" href="Images/pata.ico" type="image/x-icon">
-
-        <!--Estilos CSS-->
-        <link rel="stylesheet" href="css/style.css">
-
-        <!--Estilos Bootstrap-->
-        <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
-        <!--Iconos-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-        <!--jQuery-->
-        <script src="js/jquery-3.7.1.min.js"></script>
-    </head>
-    <body>
-        <!--Barra de navegación-->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container">
-                    <a class="navbar-brand" href="#" style="color: rgb(118, 71, 161); font-weight: 800;">
-                        <img src="Images/pata.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" >
-                        Centro Veterinario
-                    </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
-                    </ul>
-                    <div class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Ingresar
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item btn" href="login/index.php">Iniciar sesión</a></li>
-                                    <li><a class="dropdown-item btn" href="login/registro.php">Registrarse</a></li>
-                                </ul>
-                            </li>
-                    </div>
-                </div>
-                </div>
-            </nav>
+<?php
+include("app/config.php");
+include("app/controllers/productos/listar_productos.php");
+include("layout/parte1.php");
+?>
 
             <section>
                 <!--Corousel de fotos-->
@@ -91,6 +25,8 @@
                         <div class="carousel-item">
                             <img src="Images/gato.jpg" class="d-block w-100 mx-auto" alt="gato">
                             <div class="carousel-caption d-none d-md-block">
+                                <a href="" class="btn btn-primary">Reserve su Turno</a>
+                                <a href="" class="btn btn-primary">Ver Productos</a>
                                 <h5>Second slide label</h5>
                                 <p>Some representative placeholder content for the second slide.</p>
                             </div>
@@ -98,6 +34,8 @@
                         <div class="carousel-item">
                             <img src="Images/perro.jpg"  class="d-block w-100 mx-auto" alt="perro">
                             <div class="carousel-caption d-none d-md-block">
+                                <a href="" class="btn btn-primary">Reserve su Turno</a>
+                                <a href="" class="btn btn-primary">Ver Productos</a>
                                 <h5>Third slide label</h5>
                                 <p>Some representative placeholder content for the third slide.</p>
                             </div>
@@ -152,7 +90,7 @@
                                     <p class="card-text">Contamos con vacunas de última generación y un equipo especializado que adapta el plan de vacunación a 
                                         las necesidades individuales de cada animal. Priorizamos la prevención para asegurar la vitalidad y felicidad de sus 
                                         queridos compañeros.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Contáctenos</a>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +102,7 @@
                                     <p class="card-text"> Nuestro equipamiento moderno garantiza procedimientos quirúrgicos seguros
                                         y efectivos. Desde cirugías de rutina hasta intervenciones más especializadas, proporcionamos cuidado 
                                         quirúrgico de alta calidad.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Contáctenos</a>
                                 </div>
                             </div>
                         </div>
@@ -175,13 +113,42 @@
                                     <h5 class="card-title">Laboratorio propio</h5>
                                     <p class="card-text">Equipado con tecnología de vanguardia, nuestro laboratorio realiza una amplia gama de pruebas, desde análisis 
                                         de sangre hasta exámenes de muestras, con resultados confiables en el menor tiempo posible. </p><br>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="#" class="btn btn-primary">Contáctenos</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3"><br><br>
                             <img src="Images/dog.webp" alt="Perro herido" width="100%">
                         </div>
+                    </div>
+                </div><br>
+            </section>
+
+            <section class="productos ip-5">
+                <div class="container footer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <br>
+                            <h1>Nuestros Productos</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <?php
+                        foreach($productos as $producto){
+                            ?>
+                            <div class="col-md-3"><br>
+                                <div class="card foto" style="text-align: center;">
+                                    <img src="<?=$URL."Images/productos/".$producto['imagen'];?>" class="card-img-top" alt="<?=$producto['imagen'];?>">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?=$producto['nombre'];?></h5>
+                                        <p class="card-text"><?=$producto['descripcion'];?></p>
+                                        <p class="card-text">$ <?=$producto['precio'];?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div><br>
             </section>
@@ -389,38 +356,6 @@
                 </div>
             </section>
 
-            <footer class="container-fluid footer">
-                <div class="container">
-                    <div class="row mx-auto p-5">
-                        <div class="col-md-4 pt-2">
-                            <img src="Images/pata.jpg" alt="Logo" width="150" height="150" class="d-inline-block align-text-top rounded-circle" >
-                        </div>
-                        <div class="col-md-4">
-                            <h3>Centro Veterinario</h3>
-                            <a href="" class="btn btn-primary">Inicio</a><br>
-                            <a href="" class="btn btn-primary">Sobre nosostros</a><br>
-                            <a href="" class="btn btn-primary">Galería</a><br>
-                            <a href="" class="btn btn-primary">Tienda online</a>
-                        </div>
-                        <div class="col-md-4">
-                            <h3>Contacto</h3>
-                            <i class="bi bi-telephone"> +54-911-5555-1111</i>
-                            <a href="mailto:veterinaria@gmail.com" class="btn btn-primary"><i class="bi bi-envelope-at"></i> veterinaria@gmail.com</a>
-                            <div class="mx-auto">
-                                <a href="https://twitter.com/dv_veterinacios?lang=es" class="btn btn-primary" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                                <a href="https://www.instagram.com/veterinariasuba/?hl=es" class="btn btn-primary" target="_blank"><i class="bi bi-instagram"></i></a>
-                                <a href="" class="btn btn-primary" target="_blank"><i class="bi bi-facebook"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <div class="contariner" style="background-color: rgb(76, 15, 102);">
-                <div class="row p-2">
-                    <p style="text-align: center; font-weight: 800; color: white;">Centro Veterinario ©. Todos los derechos reservados. 2023</p>
-                </div>
-            </div>
-
-        <script src="js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    </body>
-</html>
+<?php
+include("layout/parte2.php");
+?>

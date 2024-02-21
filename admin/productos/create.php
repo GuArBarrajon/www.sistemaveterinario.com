@@ -64,19 +64,19 @@ function ceros($numero) {
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="stock">Stock*</label>
-                                    <input type="number" class="form-control" name="stock" required>
+                                    <input type="number" class="form-control" name="stock" min="0" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="stockMin">Stock Mínimo*</label>
-                                    <input type="number" class="form-control" name="stockMin" required>
+                                    <input type="number" class="form-control" name="stockMin" min="0" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="stockMax">Stock Máximo*</label>
-                                    <input type="number" class="form-control" name="stockMax" required>
+                                    <input type="number" class="form-control" name="stockMax" min="0"  required>
                                 </div>
                             </div>
                             <div class="col-md-3">
