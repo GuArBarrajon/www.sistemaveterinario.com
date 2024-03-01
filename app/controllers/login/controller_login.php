@@ -24,7 +24,7 @@ if(!empty($_POST['email']) and !empty($_POST['password'])){
     if ($contador > 0 && password_verify($contraseña, $password_tabla)){
         session_start();
         $_SESSION['session email'] = $email;
-        header('Location: '.$URL.'/admin');
+        header('Location: '.$URL);
     }
     else{
         echo '<script>alert("Los datos no son correctos"); window.location="../../../login";</script>';

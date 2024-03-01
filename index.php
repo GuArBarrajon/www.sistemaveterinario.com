@@ -4,7 +4,7 @@ include("app/controllers/productos/listar_productos.php");
 include("layout/parte1.php");
 ?>
 
-            <section>
+<section>
                 <!--Corousel de fotos-->
                 <div id="carouselExampleCaptions" class="carousel slide p-5">
                     <div class="carousel-indicators">
@@ -14,27 +14,27 @@ include("layout/parte1.php");
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="Images/cachorro.jpg" class="d-block w-100 mx-auto" alt="cachorro">
+                            <img src="<?php echo $URL;?>/Images/cachorro.jpg" class="d-block w-100 mx-auto" alt="cachorro">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="" class="btn btn-primary">Reserve su Turno</a>
+                                <a href="<?php echo $URL;?>/reservar.php" class="btn btn-primary">Reserve su Turno</a>
                                 <a href="" class="btn btn-primary">Ver Productos</a>
                                 <h5 class="pt-2">First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="Images/gato.jpg" class="d-block w-100 mx-auto" alt="gato">
+                            <img src="<?php echo $URL;?>/Images/gato.jpg" class="d-block w-100 mx-auto" alt="gato">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="" class="btn btn-primary">Reserve su Turno</a>
+                                <a href="<?php echo $URL;?>/reservar.php" class="btn btn-primary">Reserve su Turno</a>
                                 <a href="" class="btn btn-primary">Ver Productos</a>
                                 <h5>Second slide label</h5>
                                 <p>Some representative placeholder content for the second slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="Images/perro.jpg"  class="d-block w-100 mx-auto" alt="perro">
+                            <img src="<?php echo $URL;?>/Images/perro.jpg"  class="d-block w-100 mx-auto" alt="perro">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="" class="btn btn-primary">Reserve su Turno</a>
+                                <a href="<?php echo $URL;?>/reservar.php" class="btn btn-primary">Reserve su Turno</a>
                                 <a href="" class="btn btn-primary">Ver Productos</a>
                                 <h5>Third slide label</h5>
                                 <p>Some representative placeholder content for the third slide.</p>
@@ -56,7 +56,7 @@ include("layout/parte1.php");
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <br>
-                            <img src="Images/vet1.jpg" alt="veterinario" width="100%" class="imagen">
+                            <img src="<?php echo $URL;?>/Images/vet1.jpg" alt="veterinario" width="100%" class="imagen">
                         </div>
                         <div class="col-md-5 col-sm-12">
                             <br><br>
@@ -84,7 +84,7 @@ include("layout/parte1.php");
                     <div class="row">
                         <div class="col-md-3"><br>
                             <div class="card foto" style="text-align: center;">
-                                <img src="Images/inyeccion.jpg" class="card-img-top" alt="vacunas">
+                                <img src="<?php echo $URL;?>/Images/inyeccion.jpg" class="card-img-top" alt="vacunas">
                                 <div class="card-body">
                                     <h5 class="card-title">Vacunación</h5>
                                     <p class="card-text">Contamos con vacunas de última generación y un equipo especializado que adapta el plan de vacunación a 
@@ -96,7 +96,7 @@ include("layout/parte1.php");
                         </div>
                         <div class="col-md-3"><br>
                             <div class="card foto" style= "text-align: center;">
-                                <img src="Images/operacion.jpg" class="card-img-top" alt="operción">
+                                <img src="<?php echo $URL;?>/Images/operacion.jpg" class="card-img-top" alt="operción">
                                 <div class="card-body">
                                     <h5 class="card-title">Quirófano</h5>
                                     <p class="card-text"> Nuestro equipamiento moderno garantiza procedimientos quirúrgicos seguros
@@ -108,7 +108,7 @@ include("layout/parte1.php");
                         </div>
                         <div class="col-md-3"><br>
                             <div class="card foto" style= "text-align: center;">
-                                <img src="Images/laboratorio.jpg" class="card-img-top" alt="análisis">
+                                <img src="<?php echo $URL;?>/Images/laboratorio.jpg" class="card-img-top" alt="análisis">
                                 <div class="card-body">
                                     <h5 class="card-title">Laboratorio propio</h5>
                                     <p class="card-text">Equipado con tecnología de vanguardia, nuestro laboratorio realiza una amplia gama de pruebas, desde análisis 
@@ -118,7 +118,7 @@ include("layout/parte1.php");
                             </div>
                         </div>
                         <div class="col-md-3"><br><br>
-                            <img src="Images/dog.webp" alt="Perro herido" width="100%">
+                            <img src="<?php echo $URL;?>/Images/dog.webp" alt="Perro herido" width="100%">
                         </div>
                     </div>
                 </div><br>
@@ -162,24 +162,24 @@ include("layout/parte1.php");
                 </div>
                 <div class="row">
                     <div class="col-md-4 foto">
-                        <img src="Images/michi.jpg" alt="gato" width="100%">
+                        <img src="<?php echo $URL;?>/Images/michi.jpg" alt="gato" width="100%">
                     </div>
                     <div class="col-md-4 foto">
-                        <img src="Images/perros.jpg" alt="perros" width="100%">
+                        <img src="<?php echo $URL;?>/Images/perros.jpg" alt="perros" width="100%">
                     </div>
                     <div class="col-md-4 foto">
-                        <img src="Images/perroP.jpg" alt="perro" width="100%">
+                        <img src="<?php echo $URL;?>/Images/perroP.jpg" alt="perro" width="100%">
                     </div>
                 </div><br>
                 <div class="row">
                     <div class="col-md-4 foto">
-                        <img src="Images/caballo.jpg" alt="caballo" width="100%">
+                        <img src="<?php echo $URL;?>/Images/caballo.jpg" alt="caballo" width="100%">
                     </div>
                     <div class="col-md-4 foto">
-                        <img src="Images/perros-lago.jpg" alt="perros" width="100%">
+                        <img src="<?php echo $URL;?>/Images/perros-lago.jpg" alt="perros" width="100%">
                     </div>
                     <div class="col-md-4 foto">
-                        <img src="Images/perros-duermen.jpg" alt="perros" width="100%">
+                        <img src="<?php echo $URL;?>/Images/perros-duermen.jpg" alt="perros" width="100%">
                     </div>
                 </div><br>
             </section>
@@ -199,7 +199,7 @@ include("layout/parte1.php");
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente1.jpg" class="card-img-top" alt="mujer y gato">
+                                                <img src="<?php echo $URL;?>/Images/cliente1.jpg" class="card-img-top" alt="mujer y gato">
                                                 <div class="card-body">
                                                     <h5 class="card-title">María S.</h5>
                                                     <p class="card-text">"Increíble equipo en el centro veterinario. La atención y cuidado que brindaron a 
@@ -209,7 +209,7 @@ include("layout/parte1.php");
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente2.jpg" class="card-img-top" alt="hombre y perro">
+                                                <img src="<?php echo $URL;?>/Images/cliente2.jpg" class="card-img-top" alt="hombre y perro">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Juan R.</h5>
                                                     <p class="card-text">"El servicio de vacunatorio es impecable. Me explicaron detalladamente las opciones para mi perro y 
@@ -219,7 +219,7 @@ include("layout/parte1.php");
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente3.jpg" class="card-img-top" alt="conejo">
+                                                <img src="<?php echo $URL;?>/Images/cliente3.jpg" class="card-img-top" alt="conejo">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Laura M.</h5>
                                                     <p class="card-text"> "Mi conejillo de indias necesitaba análisis urgentes y el laboratorio del centro veterinario fue rápido y preciso.
@@ -234,7 +234,7 @@ include("layout/parte1.php");
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente4.jpg" class="card-img-top" alt="perro">
+                                                <img src="<?php echo $URL;?>/Images/cliente4.jpg" class="card-img-top" alt="perro">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Roberto G.</h5>
                                                     <p class="card-text">"Excelente experiencia en el quirófano. La cirugía de mi perro fue un éxito, y el equipo se tomó el 
@@ -244,7 +244,7 @@ include("layout/parte1.php");
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente5.jpg" class="card-img-top" alt="mujer y cachorro">
+                                                <img src="<?php echo $URL;?>/Images/cliente5.jpg" class="card-img-top" alt="mujer y cachorro">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Patricia L.</h5>
                                                     <p class="card-text">"Mi cachorro tenía problemas digestivos y el equipo veterinario diagnosticó y trató el problema rápidamente. 
@@ -254,7 +254,7 @@ include("layout/parte1.php");
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente6.jpg" class="card-img-top" alt="perro">
+                                                <img src="<?php echo $URL;?>/Images/cliente6.jpg" class="card-img-top" alt="perro">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Carlos P.</h5>
                                                     <p class="card-text">"El centro veterinario ha sido nuestra elección desde hace años. El servicio de emergencias nos 
@@ -268,7 +268,7 @@ include("layout/parte1.php");
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente7.jpg" class="card-img-top" alt="gata">
+                                                <img src="<?php echo $URL;?>/Images/cliente7.jpg" class="card-img-top" alt="gata">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Carolina R.</h5>
                                                     <p class="card-text">"El laboratorio del centro veterinario nos brindó resultados precisos para el 
@@ -278,7 +278,7 @@ include("layout/parte1.php");
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente8.jpg" class="card-img-top" alt="perro en bolso">
+                                                <img src="<?php echo $URL;?>/Images/cliente8.jpg" class="card-img-top" alt="perro en bolso">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Francisco H.</h5>
                                                     <p class="card-text">"Increíble atención en el servicio de urgencias. Estaban listos 
@@ -288,7 +288,7 @@ include("layout/parte1.php");
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card foto" style= "text-align: center;">
-                                                <img src="Images/cliente9.jpg" class="card-img-top" alt="gatos">
+                                                <img src="<?php echo $URL;?>/Images/cliente9.jpg" class="card-img-top" alt="gatos">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Andrea S.</h5>
                                                     <p class="card-text">"Mi experiencia en el centro veterinario ha sido siempre positiva. Desde las vacunas 

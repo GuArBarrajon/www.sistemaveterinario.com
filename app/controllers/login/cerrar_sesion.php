@@ -3,6 +3,6 @@ include("../../config.php");
 session_start();
 if(isset($_SESSION['session email'])){
     session_destroy();
-    header('Location: '.$URL.'/login');
+    header('Location: '.$URL);
 }
 ?>

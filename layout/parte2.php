@@ -2,7 +2,7 @@
                 <div class="container">
                     <div class="row mx-auto p-5">
                         <div class="col-md-4 pt-2">
-                            <img src="Images/pata.jpg" alt="Logo" width="150" height="150" class="d-inline-block align-text-top rounded-circle" >
+                            <img src="<?php echo $URL;?>/Images/pata.jpg" alt="Logo" width="150" height="150" class="d-inline-block align-text-top rounded-circle" >
                         </div>
                         <div class="col-md-4">
                             <h3>Centro Veterinario</h3>
@@ -30,6 +30,6 @@
                 </div>
             </div>
 
-        <script src="js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="<?php echo $URL;?>/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>
