@@ -12,6 +12,7 @@ if(isset($_SESSION['session email'])){
     foreach($usuarios as $usuario){
         $idUsuarioSesion = $usuario['id_usuario'];
         $nombreUsuarioSesion = $usuario['nombres'];
+        $apellidoUsuarioSesion = $usuario['apellido'];
         $cargoUsuarioSesion = $usuario['cargo'];
     }
 }
@@ -37,6 +38,9 @@ if(isset($_SESSION['session email'])){
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
         <!--jQuery-->
         <script src="<?php echo $URL;?>/js/jquery-3.7.1.min.js"></script>
+
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
         <!--Barra de navegación-->
@@ -81,8 +85,8 @@ if(isset($_SESSION['session email'])){
                                                 Ingresar
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item btn" href="login/index.php">Iniciar sesión</a></li>
-                                                <li><a class="dropdown-item btn" href="login/registro.php">Registrarse</a></li>
+                                                <li><a class="dropdown-item btn" href="<?php echo $URL;?>login/index.php">Iniciar sesión</a></li>
+                                                <li><a class="dropdown-item btn" href="<?php echo $URL;?>login/registro.php">Registrarse</a></li>
                                             </ul>
                                         </li>
                                     </ul>

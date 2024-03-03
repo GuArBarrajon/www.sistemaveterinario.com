@@ -12,41 +12,41 @@ include("../layout/parte1.php");
                 Complete todos los datos
             </div>
             <div class="card-body">
-                <form action="">
-                    <div class="col-md-12">
+                <form action="../app/controllers/login/controller_registro.php" method="post">
+                    <div class="col-md-12 my-2">
                         <div class="form-group">
                             <label for="">Nombre</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" class="form-control" name="nombres" required>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 my-2">
                         <div class="form-group">
                             <label for="">Apellido</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" class="form-control" name="apellido" required>
                         </div>
                     </div> 
-                    <div class="col-md-12">
+                    <div class="col-md-12 my-2">
                         <div class="form-group">
                             <label for="">E-mail</label>
-                            <input type="email" class="form-control" required>
+                            <input type="email" class="form-control" name="email" required>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 my-2">
                         <div class="form-group">
                             <label for="">Contraseña</label>
-                            <input type="password" class="form-control" required>
+                            <input type="password" class="form-control" name="password" required>
                         </div>
                     </div> 
-                    <div class="col-md-12">
+                    <div class="col-md-12 my-2">
                         <div class="form-group">
                             <label for="">Repita la Contraseña</label>
-                            <input type="password" class="form-control" required>
+                            <input type="password" class="form-control" name="password2" required>
                         </div>
                     </div>
                     <hr>
                     <div class="col-md-12">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" id="" type="button">Registrar</button>
+                        <button class="btn btn-primary" id="" type="submit">Registrar</button>
                     </div>
                     </div>                                        
                 </form>
@@ -59,4 +59,5 @@ include("../layout/parte1.php");
 
 <?php
 include("../layout/parte2.php");
+include("../admin/layout/mensaje.php");
 ?>

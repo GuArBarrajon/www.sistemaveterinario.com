@@ -16,7 +16,7 @@ include("layout/parte1.php");
                         <div class="carousel-item active">
                             <img src="<?php echo $URL;?>/Images/cachorro.jpg" class="d-block w-100 mx-auto" alt="cachorro">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="<?php echo $URL;?>/reservar.php" class="btn btn-primary">Reserve su Turno</a>
+                                <a href="<?php echo $URL;?>reservar.php" class="btn btn-primary">Reserve su Turno</a>
                                 <a href="" class="btn btn-primary">Ver Productos</a>
                                 <h5 class="pt-2">First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>
@@ -25,7 +25,7 @@ include("layout/parte1.php");
                         <div class="carousel-item">
                             <img src="<?php echo $URL;?>/Images/gato.jpg" class="d-block w-100 mx-auto" alt="gato">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="<?php echo $URL;?>/reservar.php" class="btn btn-primary">Reserve su Turno</a>
+                                <a href="<?php echo $URL;?>reservar.php" class="btn btn-primary">Reserve su Turno</a>
                                 <a href="" class="btn btn-primary">Ver Productos</a>
                                 <h5>Second slide label</h5>
                                 <p>Some representative placeholder content for the second slide.</p>
@@ -34,7 +34,7 @@ include("layout/parte1.php");
                         <div class="carousel-item">
                             <img src="<?php echo $URL;?>/Images/perro.jpg"  class="d-block w-100 mx-auto" alt="perro">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="<?php echo $URL;?>/reservar.php" class="btn btn-primary">Reserve su Turno</a>
+                                <a href="<?php echo $URL;?>reservar.php" class="btn btn-primary">Reserve su Turno</a>
                                 <a href="" class="btn btn-primary">Ver Productos</a>
                                 <h5>Third slide label</h5>
                                 <p>Some representative placeholder content for the third slide.</p>
@@ -358,4 +358,5 @@ include("layout/parte1.php");
 
 <?php
 include("layout/parte2.php");
+include("admin/layout/mensaje.php");
 ?>
