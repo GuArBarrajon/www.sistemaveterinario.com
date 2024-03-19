@@ -18,13 +18,22 @@ if(!empty($_POST['email']) and !empty($_POST['password'])){
     foreach($usuarios as $usuario){
         $contador = $contador + 1;
         $password_tabla = $usuario['password'];
+        $cargo_tabla = $usuario['cargo'];
     }
 
     /*Verifica si la contraseña ingresada es igual a la encriptada en la base de datos*/
     if ($contador > 0 && password_verify($contraseña, $password_tabla)){
         session_start();
         $_SESSION['session email'] = $email;
-        header('Location: '.$URL);
+
+        //redirige según sea administrador o cliente
+        if($cargo_tabla == "administrador"){
+            header('Location: '.$URL.'/admin');
+        }
+        else{
+            header('Location: '.$URL);
+        }
+        
     }
     else{
         echo '<script>alert("Los datos no son correctos"); window.location="../../../login";</script>';

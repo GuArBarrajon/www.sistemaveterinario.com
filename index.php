@@ -318,44 +318,6 @@ include("layout/parte1.php");
                 </div>
             </section>
 
-            <section class="contactos">
-                <div class="container p-5">
-                    <h1 style=" text-align: center;">Contáctenos:</h1>
-                    <div class="row">
-                        <div class="col-md-4 mx-auto">
-                            <div class="card">
-                                <div class="card-header">
-                                    Escríbanos aquí
-                                </div>
-                                <div class="card-body">
-                                    <form action="" method="post">
-                                        <div class="form-group p-1">
-                                            <label for="">Nombre</label>
-                                            <input type="text" class="form-control" placeholder="Ingrese su nombre">
-                                        </div>
-                                        <div class="form-group p-1">
-                                            <label for="">Apellido</label>
-                                            <input type="text" class="form-control" placeholder="Ingrese su apellido">
-                                        </div>
-                                        <div class="form-group p-1">
-                                            <label for="">Correo</label>
-                                            <input type="email" class="form-control" placeholder="Ingrese su correo electrónico">
-                                        </div>
-                                        <div class="form-group p-1">
-                                            <label for="">Comentario</label>
-                                            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-                                        </div>
-                                        <div class="d-grid gap-2">
-                                            <button class="btn btn-primary m-1" type="submit">Enviar</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
 <?php
 include("layout/parte2.php");
 include("admin/layout/mensaje.php");
