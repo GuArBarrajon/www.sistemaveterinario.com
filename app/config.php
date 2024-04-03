@@ -17,4 +17,5 @@ $URL= "http://localhost/www.sistemaveterinario.com/";
 
 date_default_timezone_set("America/Argentina/Buenos_Aires");
 $fechaHora = date(format:'Y-m-d H:i:s');
+$fechaHoy = date(format:'Y-m-d');
 ?>

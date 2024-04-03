@@ -1,7 +1,7 @@
 <?php
 include("../../app/config.php");
 include("../layout/parte1.php");
-include("../../app/controllers/reservas/listar_turnoss.php");
+include("../../app/controllers/reservas/listar_turnos.php");
 ?>
 
 <div class="container pt-4">
@@ -25,6 +25,7 @@ include("../../app/controllers/reservas/listar_turnoss.php");
                                 <th>Servicio</th>
                                 <th>Fecha</th>
                                 <th>Hora</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>

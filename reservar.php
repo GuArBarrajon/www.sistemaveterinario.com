@@ -43,6 +43,7 @@ include("layout/parte1.php");
                         var mes = new Date().getMonth() + 1; 
                         if(mes < 10){mes = "0"+mes;}
                         var dia = new Date().getDate(); 
+                        if(dia < 10){dia = "0"+dia;}
                         var hoy = anio + "-" + mes + "-" + dia;
 
                         if(hoy <= a){

@@ -3,7 +3,7 @@ include("../app/config.php");
 include("layout/parte1.php");
 include("../app/controllers/Usuarios/listar_usuarios.php");
 include("../app/controllers/productos/listar_productos.php");
-include("../app/controllers/reservas/listar_turnoss.php");
+include("../app/controllers/reservas/listar_turnos.php");
 ?>
 
 <h2 class="pt-4">Bienvenido al Sistema</h2>

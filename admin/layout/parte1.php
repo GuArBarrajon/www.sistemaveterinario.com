@@ -81,7 +81,7 @@ else{
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: rgb(60, 15, 102);">
     <!-- Brand Logo -->
-    <a href="<?php echo $URL;?>" class="brand-link" target="_blank">
+    <a href="<?php echo $URL;?>" class="brand-link">
         <img src="<?php echo $URL;?>/Images/pata.ico" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><?php echo APP_NAME;?></span>
     </a>

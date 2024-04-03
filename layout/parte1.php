@@ -2,6 +2,7 @@
 
 session_start();
 $emailSesion = "";
+$cargoUsuarioSesion = "";
 if(isset($_SESSION['session email'])){
     echo $emailSesion;
     $emailSesion = $_SESSION['session email'];
@@ -72,10 +73,15 @@ if(isset($_SESSION['session email'])){
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
+                    <?php 
+                        if ($cargoUsuarioSesion != "" and $cargoUsuarioSesion != "cliente"){?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo $URL;?>/admin">Administrador</a>
+                            </li><?php
+                        }
+                    ?>
                     </ul>
                     <div class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
                         <?php 
                             if($emailSesion == ""){
                                 ?>
