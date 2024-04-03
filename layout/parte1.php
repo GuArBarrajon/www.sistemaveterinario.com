@@ -39,9 +39,15 @@ if(isset($_SESSION['session email'])){
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
         <!--jQuery-->
         <script src="<?php echo $URL;?>/js/jquery-3.7.1.min.js"></script>
+        <script src="<?php echo $URL;?>/Templates/plugins/jquery/jquery.min.js"></script>
 
         <!-- SweetAlert2 -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- DataTables -->
+        <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     </head>
     <body>
         <!--Barra de navegación-->
@@ -57,26 +63,30 @@ if(isset($_SESSION['session email'])){
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?php echo $URL;?>">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?php echo $URL;?>">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="<?php echo $URL;?>#productos">Productos</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo $URL;?>#galeria">Galería</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo $URL;?>#nosotros">Sobre nosotros</a>
+                    </li>
+
                     <?php 
                         if ($cargoUsuarioSesion != "" and $cargoUsuarioSesion != "cliente"){?>
                             <li class="nav-item">
+                                <a class="nav-link" href="<?php echo $URL;?>admin/turnos/nuevo_turno.php">Turnos</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<?php echo $URL;?>/admin">Administrador</a>
+                            </li><?php
+                        }
+                        else{?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo $URL;?>reservar.php">Turnos</a>
                             </li><?php
                         }
                     ?>

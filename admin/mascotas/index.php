@@ -58,6 +58,7 @@ include("../../app/controllers/Usuarios/ver_datos.php");
     </div>
     <div class="row">
             <div class="col-md-12 pb-2">
+                <a href="<?php echo $URL;?>/admin/Usuarios" class="btn btn-success"><i class="bi bi-arrow-left"></i> | Volver a Usuarios</a>
                 <a href="<?php echo $URL;?>/admin/mascotas/create.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-primary">Nueva mascota</a>
             </div>
     </div>

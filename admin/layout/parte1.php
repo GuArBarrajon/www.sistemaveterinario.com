@@ -32,6 +32,9 @@ else{
   <!--Favicon-->
   <link rel="shortcut icon" href="<?php echo $URL;?>/Images/pata.ico" type="image/x-icon">
 
+  <!--Estilos CSS-->
+  <link rel="stylesheet" href="<?php echo $URL;?>/css/style.css">
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Iconos -->
@@ -90,7 +93,7 @@ else{
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-1 mb-3 d-flex">
-            <div class="info">
+            <div class="inf">
             <a>
             <p class="d-block">Bienvenido</p>
             <p><?=$nombreUsuarioSesion; ?></p></a>
@@ -162,7 +165,7 @@ else{
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo $URL;?>/reservar.php" class="nav-link">
+                <a href="<?php echo $URL;?>/admin/turnos/nuevo_turno.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo Turno</p>
                 </a>

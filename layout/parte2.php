@@ -6,10 +6,21 @@
                         </div>
                         <div class="col-md-4">
                             <h3>Centro Veterinario</h3>
-                            <a href="" class="btn btn-primary">Inicio</a><br>
-                            <a href="" class="btn btn-primary">Sobre nosostros</a><br>
-                            <a href="" class="btn btn-primary">Galería</a><br>
-                            <a href="" class="btn btn-primary">Productos</a>
+                            <a href="<?php echo $URL;?>" class="btn btn-primary">Inicio</a><br>
+                            <a href="<?php echo $URL;?>#productos" class="btn btn-primary">Productos</a><br>
+                            <a href="<?php echo $URL;?>#galeria" class="btn btn-primary">Galería</a><br>
+                            <a href="<?php echo $URL;?>#nosotros" class="btn btn-primary">Sobre nosostros</a><br>
+                            <?php 
+                                if ($cargoUsuarioSesion != "" and $cargoUsuarioSesion != "cliente"){?>
+                                    <a class="btn btn-primary" href="<?php echo $URL;?>admin/turnos/nuevo_turno.php">Turnos</a>
+                            <?php   
+                                }
+                                else{?>
+                                    <a class="btn btn-primary" href="<?php echo $URL;?>reservar.php">Turnos</a>
+                            <?php
+                                }
+                            ?>
+
                         </div>
                         <div class="col-md-4">
                             <h3>Contacto</h3>

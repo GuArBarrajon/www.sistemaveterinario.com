@@ -16,8 +16,7 @@ include("layout/parte1.php");
                         <div class="carousel-item active">
                             <img src="<?php echo $URL;?>/Images/cachorro.jpg" class="d-block w-100 mx-auto" alt="cachorro">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="<?php echo $URL;?>reservar.php" class="btn btn-primary">Reserve su Turno</a>
-                                <a href="" class="btn btn-primary">Ver Productos</a>
+                                <a href="#productos" class="btn btn-primary">Ver Productos</a>
                                 <h5 class="pt-2">First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>
                             </div>
@@ -25,8 +24,7 @@ include("layout/parte1.php");
                         <div class="carousel-item">
                             <img src="<?php echo $URL;?>/Images/gato.jpg" class="d-block w-100 mx-auto" alt="gato">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="<?php echo $URL;?>reservar.php" class="btn btn-primary">Reserve su Turno</a>
-                                <a href="" class="btn btn-primary">Ver Productos</a>
+                                <a href="#productos" class="btn btn-primary">Ver Productos</a>
                                 <h5>Second slide label</h5>
                                 <p>Some representative placeholder content for the second slide.</p>
                             </div>
@@ -34,8 +32,7 @@ include("layout/parte1.php");
                         <div class="carousel-item">
                             <img src="<?php echo $URL;?>/Images/perro.jpg"  class="d-block w-100 mx-auto" alt="perro">
                             <div class="carousel-caption d-none d-md-block">
-                                <a href="<?php echo $URL;?>reservar.php" class="btn btn-primary">Reserve su Turno</a>
-                                <a href="" class="btn btn-primary">Ver Productos</a>
+                                <a href="#productos" class="btn btn-primary">Ver Productos</a>
                                 <h5>Third slide label</h5>
                                 <p>Some representative placeholder content for the third slide.</p>
                             </div>
@@ -51,7 +48,7 @@ include("layout/parte1.php");
                     </button>
                 </div>
             </section>
-            <section class="info">
+            <section class="info" id="nosotros">
                 <div class="container-fluid p-5">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
@@ -67,13 +64,14 @@ include("layout/parte1.php");
                                 especializados. Nos enorgullece ofrecer un ambiente acogedor y compasivo donde tanto usted como su 
                                 mascota se sientan cómodos y bien atendidos. En cada visita, nos esforzamos por promover la salud y el 
                                 bienestar de sus amigos peludos, creando una relación de confianza que perdura a lo largo del tiempo.</p>
-                            <a href="" class="btn btn-primary" >Más sobre nosotros</a>
+                            <a href="#servicios" class="btn btn-primary" >Más sobre nosotros</a>
+                            
                             </div>
                     </div>
                 </div>
             </section>
 
-            <section class="servicios p-5">
+            <section class="servicios p-2" id="servicios">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -90,7 +88,7 @@ include("layout/parte1.php");
                                     <p class="card-text">Contamos con vacunas de última generación y un equipo especializado que adapta el plan de vacunación a 
                                         las necesidades individuales de cada animal. Priorizamos la prevención para asegurar la vitalidad y felicidad de sus 
                                         queridos compañeros.</p>
-                                    <a href="#" class="btn btn-primary">Contáctenos</a>
+                                    <a href="#fin" class="btn btn-primary" >Contactanos</a>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +100,7 @@ include("layout/parte1.php");
                                     <p class="card-text"> Nuestro equipamiento moderno garantiza procedimientos quirúrgicos seguros
                                         y efectivos. Desde cirugías de rutina hasta intervenciones más especializadas, proporcionamos cuidado 
                                         quirúrgico de alta calidad.</p>
-                                    <a href="#" class="btn btn-primary">Contáctenos</a>
+                                    <a href="#fin" class="btn btn-primary" >Contactanos</a>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +111,7 @@ include("layout/parte1.php");
                                     <h5 class="card-title">Laboratorio propio</h5>
                                     <p class="card-text">Equipado con tecnología de vanguardia, nuestro laboratorio realiza una amplia gama de pruebas, desde análisis 
                                         de sangre hasta exámenes de muestras, con resultados confiables en el menor tiempo posible. </p><br>
-                                    <a href="#" class="btn btn-primary">Contáctenos</a>
+                                    <a href="#fin" class="btn btn-primary" >Contactanos</a>
                                 </div>
                             </div>
                         </div>
@@ -121,70 +119,10 @@ include("layout/parte1.php");
                             <img src="<?php echo $URL;?>/Images/dog.webp" alt="Perro herido" width="100%">
                         </div>
                     </div>
-                </div><br>
-            </section>
-
-            <section class="productos ip-5">
-                <div class="container footer">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <br>
-                            <h1>Nuestros Productos</h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <?php
-                        foreach($productos as $producto){
-                            ?>
-                            <div class="col-md-3"><br>
-                                <div class="card foto" style="text-align: center;">
-                                    <img src="<?=$URL."Images/productos/".$producto['imagen'];?>" class="card-img-top" alt="<?=$producto['imagen'];?>">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?=$producto['nombre'];?></h5>
-                                        <p class="card-text"><?=$producto['descripcion'];?></p>
-                                        <p class="card-text">$ <?=$producto['precio'];?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                </div><br>
-            </section>
-
-            <section class="galeria container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <br>
-                        <h1>Galería</h1>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/michi.jpg" alt="gato" width="100%">
-                    </div>
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/perros.jpg" alt="perros" width="100%">
-                    </div>
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/perroP.jpg" alt="perro" width="100%">
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/caballo.jpg" alt="caballo" width="100%">
-                    </div>
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/perros-lago.jpg" alt="perros" width="100%">
-                    </div>
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/perros-duermen.jpg" alt="perros" width="100%">
-                    </div>
-                </div><br>
             </section>
-            
-            <section class="clientes p-5">
+
+            <section class="clientes p-2">
                 <div class="container">
                     <h1 style="margin: 15px;"><br>Testimonios de Clientes</h1>
                     <div class="row">
@@ -311,12 +249,74 @@ include("layout/parte1.php");
                 </div>
             </section>
 
+            <section class="productos ip-5" id="productos">
+                <div class="container footer">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <br>
+                            <h1>Nuestros Productos</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <?php
+                        foreach($productos as $producto){
+                            ?>
+                            <div class="col-md-3"><br>
+                                <div class="card foto" style="text-align: center;">
+                                    <img src="<?=$URL."Images/productos/".$producto['imagen'];?>" class="card-img-top" alt="<?=$producto['imagen'];?>">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?=$producto['nombre'];?></h5>
+                                        <p class="card-text"><?=$producto['descripcion'];?></p>
+                                        <p class="card-text">$ <?=$producto['precio'];?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div><br>
+            </section>
+
+            <section class="galeria container" id="galeria">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br>
+                        <h1>Galería</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 foto">
+                        <img src="<?php echo $URL;?>/Images/michi.jpg" alt="gato" width="100%">
+                    </div>
+                    <div class="col-md-4 foto">
+                        <img src="<?php echo $URL;?>/Images/perros.jpg" alt="perros" width="100%">
+                    </div>
+                    <div class="col-md-4 foto">
+                        <img src="<?php echo $URL;?>/Images/perroP.jpg" alt="perro" width="100%">
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-4 foto">
+                        <img src="<?php echo $URL;?>/Images/caballo.jpg" alt="caballo" width="100%">
+                    </div>
+                    <div class="col-md-4 foto">
+                        <img src="<?php echo $URL;?>/Images/perros-lago.jpg" alt="perros" width="100%">
+                    </div>
+                    <div class="col-md-4 foto">
+                        <img src="<?php echo $URL;?>/Images/perros-duermen.jpg" alt="perros" width="100%">
+                    </div>
+                </div><br>
+            </section>
+            
+
             <section class="direccion" style="margin: 25px;">
                 <div class="container-fluid" style="text-align: center;">
                     <h1>Encuéntrenos:</h1>
                     <iframe  src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d3277.2198778550596!2d-58.6410195!3d-34.7752396!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x95bcc4816dac031b%3A0xe0e67daa393c7731!2sHospital%20Veterinario%20Gonzalez%20Cat%C3%A1n!3m2!1d-34.775815066665935!2d-58.642232716083534!5e0!3m2!1ses!2sar!4v1702786908230!5m2!1ses!2sar" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </section>
+            <div id="fin"></div>
 
 <?php
 include("layout/parte2.php");
