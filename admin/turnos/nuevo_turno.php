@@ -37,7 +37,7 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
                                 echo '<td>'.$usuario['email'].'</td>';?>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="../../reservar2.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-info" title="Solicitar turno"><i class="bi bi-file-font"></i></a>
+                                        <a href="reservar_admin.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-info" title="Solicitar turno"><i class="bi bi-file-font"></i></a>
                                     </div>
                                 </td>
                                 <?php

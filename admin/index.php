@@ -72,5 +72,6 @@ include("../app/controllers/reservas/listar_turnos.php");
 </div>
 
 <?php
-include("layout/parte2.php");      
+include("layout/parte2.php");
+include("layout/mensaje.php");      
 ?>

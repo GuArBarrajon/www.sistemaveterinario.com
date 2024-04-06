@@ -1,70 +1,67 @@
 <?php
-include ('../app/config.php');
+include("../app/config.php");
+//include("../app/controllers/productos/listar_productos.php");
+include("../layout/parte1.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!--Favicon-->
-  <link rel="shortcut icon" href="<?php echo $URL;?>/Images/pata.ico" type="image/x-icon">
-  
-  <title><?php echo APP_NAME; ?></title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href='<?php echo $URL;?>/Templates/plugins/fontawesome-free/css/all.min.css'>
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo $URL;?>/Templates/dist/css/adminlte.min.css">
-</head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="<?php echo $URL;?>/Templates/index2.html"><b>Formulario de Ingreso</b></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <img src="<?php echo $URL;?>/Images/pata.jpg" alt="Logo" width="100" height="100" class="rounded-circle mx-auto d-block">
-      <p class="login-box-msg" style="font-weight: 800;">Ingrese sus datos</p>
-
-      <form action="<?php echo $URL;?>/app/controllers/login/controller_login.php" method="post">
-      
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" name="email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+<div class="container my-4">
+    <h2 class="text-center">Formulario de Ingreso</h2>
+    <div class="row">
+        <div class="card col-md-4 mx-auto">
+            <div class="card-header">
+                <img src="<?php echo $URL;?>/Images/pata.jpg" alt="Logo" width="100" height="100" class="rounded-circle mx-auto d-block">
+                <p class="login-box-msg text-center" style="font-weight: 800;">Ingrese sus datos</p>
             </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Contraseña" name="password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+            <div class="card-body">
+                <form action="<?php echo $URL;?>/app/controllers/login/controller_login.php" method="post">
+                    <div class="col-md-12 my-2">
+                        <div class="form-group">
+                            <label for="">E-mail</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-2">
+                        <div class="form-group">
+                            <label for="">Contraseña</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                    </div> 
+                    <hr>
+                    <div class="col-md-12">
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-block" id="" type="submit">Ingresar</button>
+                        <a href="<?php echo $URL;?>" class="btn btn-secondary btn-block my-3">Cancelar</a>
+                    </div>
+                        <div class="text-center">
+                            <a href="<?php echo $URL.'login/recuperar.php';?>" class="btn">Olvidó su contraseña?</a>
+                        </div>
+                    </div>                                        
+                </form>
             </div>
-          </div>
         </div>
-          <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-          <a href="<?php echo $URL;?>" class="btn btn-secondary btn-block mt-3">Cancelar</a>
-        </div>
-      </form>
     </div>
-
-  </div>
 </div>
 
-<!-- jQuery -->
-<script src="<?php echo $URL;?>/Templates/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?php echo $URL;?>/Templates/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo $URL;?>/Templates/dist/js/adminlte.min.js"></script>
-</body>
-</html>
+<?php
+//mensajes de error token inválido o vencido
+
+if(!empty($_GET['message'])){
+    switch($_GET['message']){
+        case 'not_found':
+            $_SESSION['mensaje'] = "No se encontró el token. Vuelva a intentar recuperar la contraseña";
+            $_SESSION['icono'] = "error";
+            break;
+        case 'expired':
+            $_SESSION['mensaje'] = "Pasó el tiempo permitido. Vuelva a intentar recuperar la contraseña";
+            $_SESSION['icono'] = "error";
+            break;
+    }
+}
+
+?>
+
+
+<?php
+include("../layout/parte2.php");
+include("../admin/layout/mensaje.php");
+?>

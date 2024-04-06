@@ -63,7 +63,7 @@ else{
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo $URL;?>/admin" class="nav-link"><?php echo APP_NAME; ?></a>
+        <a href="<?php echo $URL;?>/admin" class="nav-link" title="Inicio Administrador"><?php echo APP_NAME; ?></a>
       </li>
     </ul>
 
@@ -84,7 +84,7 @@ else{
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: rgb(60, 15, 102);">
     <!-- Brand Logo -->
-    <a href="<?php echo $URL;?>" class="brand-link">
+    <a href="<?php echo $URL;?>" class="brand-link" title="Vista clientes">
         <img src="<?php echo $URL;?>/Images/pata.ico" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"><?php echo APP_NAME;?></span>
     </a>

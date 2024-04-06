@@ -1,11 +1,15 @@
 <?php
-include("app/config.php");
-include("app/controllers/productos/listar_productos.php");
+include("../../app/config.php");
+include("../../app/controllers/productos/listar_productos.php");
 
 $id_usuario = $_GET['id_usuario'];
-include("app/controllers/Usuarios/ver_datos.php");
+include("../../app/controllers/Usuarios/ver_datos.php");
 
-include("layout/parte1.php");
+include("../../layout/parte1.php");
+
+if($cargoUsuarioSesion != "administrador"){?>
+    <script>window.location.replace("http://localhost/www.sistemaveterinario.com");</script><?php 
+}
 ?>
     <!-- Scripts de Fullcalendar -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
@@ -23,7 +27,7 @@ include("layout/parte1.php");
             selectable: true,
             allDaySlot: false,
 
-            events: 'app/controllers/reservas/cargar_turnos.php',
+            events: '../../app/controllers/reservas/cargar_turnos.php',
 
             dateClick: function(info) {
                 a = info.dateStr;
@@ -53,7 +57,7 @@ include("layout/parte1.php");
                             //Para verificar los horarios disponibles
                             var fecha = info.dateStr;
                             var resultado;
-                            var url = "app/controllers/reservas/verificar_horario.php" ;
+                            var url = "../../app/controllers/reservas/verificar_horario.php" ;
 
                             $.get(url, {fecha:fecha}, function(datos){
                                 resultado = datos;
@@ -84,7 +88,7 @@ include("layout/parte1.php");
                         </div>
 
                         <div class="col-md-4"><br><br>
-                            <img src="Images/dog.webp" alt="Perro herido" width="100%">
+                            <img src="../../Images/dog.webp" alt="Perro herido" width="100%">
                         </div>
                     </div>
                 </div><br>
@@ -92,8 +96,8 @@ include("layout/parte1.php");
 
 
 <?php
-include("layout/parte2.php");
-include("admin/layout/mensaje.php");
+include("../../layout/parte2.php");
+include("../layout/mensaje.php");
 ?>
 
 <!-- Modal Horarios-->

@@ -51,9 +51,9 @@ if(isset($_SESSION['session email'])){
     </head>
     <body>
         <!--Barra de navegación-->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
                 <div class="container">
-                    <a class="navbar-brand" href="<?php echo $URL;?>" style="color: rgb(118, 71, 161); font-weight: 800;">
+                    <a class="navbar-brand" href="<?php echo $URL;?>" style="color: rgb(118, 71, 161); font-weight: 800;" title="Inicio">
                         <img src="<?php echo $URL;?>/Images/pata.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" >
                         Centro Veterinario
                     </a>
@@ -63,30 +63,30 @@ if(isset($_SESSION['session email'])){
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?php echo $URL;?>">Inicio</a>
+                        <a class="nav-link btn" href="<?php echo $URL;?>#productos">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $URL;?>#productos">Productos</a>
+                        <a class="nav-link btn" href="<?php echo $URL;?>#galeria">Galería</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $URL;?>#galeria">Galería</a>
+                        <a class="nav-link btn" href="<?php echo $URL;?>#nosotros">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $URL;?>#nosotros">Sobre nosotros</a>
+                        <a class="nav-link btn" href="<?php echo $URL;?>#fin">Contacto</a>
                     </li>
 
                     <?php 
                         if ($cargoUsuarioSesion != "" and $cargoUsuarioSesion != "cliente"){?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $URL;?>admin/turnos/nuevo_turno.php">Turnos</a>
+                                <a class="nav-link btn" href="<?php echo $URL;?>admin/turnos/nuevo_turno.php">Turnos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $URL;?>/admin">Administrador</a>
+                                <a class="nav-link btn" href="<?php echo $URL;?>/admin">Administrador</a>
                             </li><?php
                         }
                         else{?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo $URL;?>reservar.php">Turnos</a>
+                                <a class="nav-link btn" href="<?php echo $URL;?>reservar.php">Turnos</a>
                             </li><?php
                         }
                     ?>

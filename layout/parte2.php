@@ -25,11 +25,11 @@
                         <div class="col-md-4">
                             <h3>Contacto</h3>
                             <i class="bi bi-telephone"> +54-911-5555-1111</i>
-                            <a href="mailto:veterinaria@gmail.com" class="btn btn-primary"><i class="bi bi-envelope-at"></i> veterinaria@gmail.com</a>
+                            <a href="mailto:veterinaria@gmail.com" class="btn btn-primary"><i class="bi bi-envelope-at"></i> veterinariacudi@outlook.com</a>
                             <div class="mx-auto">
-                                <a href="https://twitter.com/dv_veterinacios?lang=es" class="btn btn-primary" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                                <a href="https://twitter.com/ubafvet?lang=es" class="btn btn-primary" target="_blank"><i class="bi bi-twitter-x"></i></a>
                                 <a href="https://www.instagram.com/veterinariasuba/?hl=es" class="btn btn-primary" target="_blank"><i class="bi bi-instagram"></i></a>
-                                <a href="" class="btn btn-primary" target="_blank"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.facebook.com/FvetUBA/?locale=es_LA" class="btn btn-primary" target="_blank"><i class="bi bi-facebook"></i></a>
                             </div>
                         </div>
                     </div>

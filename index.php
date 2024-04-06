@@ -6,7 +6,7 @@ include("layout/parte1.php");
 
 <section>
                 <!--Corousel de fotos-->
-                <div id="carouselExampleCaptions" class="carousel slide p-5">
+                <div id="carouselExampleCaptions" class="carousel slide mx-5 p-5">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -15,26 +15,26 @@ include("layout/parte1.php");
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="<?php echo $URL;?>/Images/cachorro.jpg" class="d-block w-100 mx-auto" alt="cachorro">
-                            <div class="carousel-caption d-none d-md-block">
+                            <div class="carousel-caption d-none d-md-block">                                
+                                <h5 class="p-2" style="background: #c8b0e6">Productos para cachorros que garantizan su bienestar y desarrollo saludable</h5>
+                                <p style="background: #8064A2">Juguetes diseñados para satisfacer sus necesidades de masticación y juego, camas cómodas que les proporcionan un lugar seguro para descansar, accesorios como comederos y bebederos adecuados que ayudan a mantener una alimentación adecuada y una hidratación constante.</p>
                                 <a href="#productos" class="btn btn-primary">Ver Productos</a>
-                                <h5 class="pt-2">First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="<?php echo $URL;?>/Images/gato.jpg" class="d-block w-100 mx-auto" alt="gato">
                             <div class="carousel-caption d-none d-md-block">
+                                <h5 class="p-2" style="background: #c8b0e6">Productos para gatitos que garantizan su bienestar y desarrollo óptimo</h5>
+                                <p style="background: #8064A2">Juguetes que estimulan su instinto de caza y les brindan ejercicio, rascadores que satisfacen su necesidad innata de arañar y afilar sus garras.</p>
                                 <a href="#productos" class="btn btn-primary">Ver Productos</a>
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="<?php echo $URL;?>/Images/perro.jpg"  class="d-block w-100 mx-auto" alt="perro">
                             <div class="carousel-caption d-none d-md-block">
+                                <h5 class="p-2" style="background: #c8b0e6">Productos para perros adultos para su salud y felicidad a lo largo de su vida. </h5>
+                                <p style="background: #8064A2">Juguetes resistentes que les proporcionan estimulación mental y física, camas ortopédicas que ofrecen comodidad y apoyo para sus articulaciones.</p>
                                 <a href="#productos" class="btn btn-primary">Ver Productos</a>
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ include("layout/parte1.php");
                                     <p class="card-text">Contamos con vacunas de última generación y un equipo especializado que adapta el plan de vacunación a 
                                         las necesidades individuales de cada animal. Priorizamos la prevención para asegurar la vitalidad y felicidad de sus 
                                         queridos compañeros.</p>
-                                    <a href="#fin" class="btn btn-primary" >Contactanos</a>
+                                    <a href="#fin" class="btn btn-primary" >Contáctenos</a>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@ include("layout/parte1.php");
                                     <p class="card-text"> Nuestro equipamiento moderno garantiza procedimientos quirúrgicos seguros
                                         y efectivos. Desde cirugías de rutina hasta intervenciones más especializadas, proporcionamos cuidado 
                                         quirúrgico de alta calidad.</p>
-                                    <a href="#fin" class="btn btn-primary" >Contactanos</a>
+                                    <a href="#fin" class="btn btn-primary" >Contáctenos</a>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@ include("layout/parte1.php");
                                     <h5 class="card-title">Laboratorio propio</h5>
                                     <p class="card-text">Equipado con tecnología de vanguardia, nuestro laboratorio realiza una amplia gama de pruebas, desde análisis 
                                         de sangre hasta exámenes de muestras, con resultados confiables en el menor tiempo posible. </p><br>
-                                    <a href="#fin" class="btn btn-primary" >Contactanos</a>
+                                    <a href="#fin" class="btn btn-primary" >Contáctenos</a>
                                 </div>
                             </div>
                         </div>

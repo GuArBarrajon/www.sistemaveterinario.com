@@ -2,39 +2,24 @@
 include("../app/config.php");
 //include("../app/controllers/productos/listar_productos.php");
 include("../layout/parte1.php");
+include("../app/controllers/login/verify_token.php");
+
 ?>
 
 <div class="container my-4">
-    <h2 class="text-center">Formulario de Registro</h2>
+    <h2 class="text-center">Recuperar contraseña</h2>
     <div class="row">
         <div class="card col-md-4 mx-auto">
             <div class="card-header">
                 <img src="<?php echo $URL;?>/Images/pata.jpg" alt="Logo" width="100" height="100" class="rounded-circle mx-auto d-block">
-                <p class="login-box-msg text-center" style="font-weight: 800;">Complete todos los campos</p>
+                <p class="login-box-msg text-center" style="font-weight: 800;">Ingrese su nueva contraseña</p>
             </div>
             <div class="card-body">
-                <form action="<?php echo $URL;?>/app/controllers/login/controller_registro.php" method="post">
+                <form action="<?php echo $URL;?>/app/controllers/login/change_password.php" method="post">
+
                     <div class="col-md-12 my-2">
                         <div class="form-group">
-                            <label for="">Nombre</label>
-                            <input type="text" class="form-control" name="nombres" required>
-                        </div>
-                    </div>
-                    <div class="col-md-12 my-2">
-                        <div class="form-group">
-                            <label for="">Apellido</label>
-                            <input type="text" class="form-control" name="apellido" required>
-                        </div>
-                    </div> 
-                    <div class="col-md-12 my-2">
-                        <div class="form-group">
-                            <label for="">E-mail</label>
-                            <input type="email" class="form-control" name="email" required>
-                        </div>
-                    </div>
-                    <div class="col-md-12 my-2">
-                        <div class="form-group">
-                            <label for="">Contraseña</label>
+                            <label for="">Nueva Contraseña</label>
                             <input type="password" class="form-control" name="password" required>
                         </div>
                     </div> 
@@ -44,6 +29,8 @@ include("../layout/parte1.php");
                             <input type="password" class="form-control" name="password2" required>
                         </div>
                     </div>
+                    <input type="text" name="id_usuario" value="<?php echo $usuario['id_usuario'];?>" hidden>
+                    <input type="text" name="token_usuario" value="<?php echo $token_usuario;?>" hidden>
                     <hr>
                     <div class="col-md-12">
                     <div class="d-grid">

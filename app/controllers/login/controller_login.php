@@ -11,35 +11,47 @@ if(!empty($_POST['email']) and !empty($_POST['password'])){
     $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     $query = $pdo->prepare($sql);
     $query->execute();
-    $usuarios = $query->fetchAll();
+    $usuario = $query->fetch();
 
-    //se recupara la contraseña de la base de datos para ese email
-    $contador = 0;
-    foreach($usuarios as $usuario){
-        $contador = $contador + 1;
-        $password_tabla = $usuario['password'];
-        $cargo_tabla = $usuario['cargo'];
-    }
-
-    /*Verifica si la contraseña ingresada es igual a la encriptada en la base de datos*/
-    if ($contador > 0 && password_verify($contraseña, $password_tabla)){
+    //verifica si hay un usuario registrado con ese email
+    if (empty($usuario['email'])){
         session_start();
-        $_SESSION['session email'] = $email;
-
-        //redirige según sea administrador o cliente
-        if($cargo_tabla == "administrador"){
-            header('Location: '.$URL.'/admin');
-        }
-        else{
-            header('Location: '.$URL);
-        }
-        
+        $_SESSION['mensaje'] = "No existe un usuario registrado con ese email";
+        $_SESSION['icono'] = "error";
+        header('Location: '.$URL.'login');
     }
     else{
-        echo '<script>alert("Los datos no son correctos"); window.location="../../../login";</script>';
+        //se recupara la contraseña de la base de datos para ese email
+        $password_tabla = $usuario['password'];
+        $cargo_tabla = $usuario['cargo'];
+
+        /*Verifica si la contraseña ingresada es igual a la encriptada en la base de datos*/
+        if (password_verify($contraseña, $password_tabla)){
+            session_start();
+            $_SESSION['session email'] = $email;
+
+            $_SESSION['mensaje'] = 'Bienvenido/a'.' '.$usuario['nombres'];
+            $_SESSION['icono'] = "success";
+            //redirige según sea administrador o cliente
+            if($cargo_tabla == "administrador"){
+                header('Location: '.$URL.'/admin');
+            }
+            else{
+                header('Location: '.$URL);
+            }
+        }
+        else{
+            session_start();
+            $_SESSION['mensaje'] = "La contraseña no es correcta";
+            $_SESSION['icono'] = "error";
+            header('Location: '.$URL.'login');
+        }
     }
 }
 else{
-    echo '<script>alert("Complete todos los campos"); window.location="../../../login";</script>';
+    session_start();
+    $_SESSION['mensaje'] = "Complete todos los campos";
+    $_SESSION['icono'] = "error";
+    header('Location: '.$URL.'login');
 }
 ?>
