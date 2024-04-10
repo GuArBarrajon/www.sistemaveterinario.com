@@ -78,7 +78,7 @@ if(isset($_SESSION['session email'])){
                     <?php 
                         if ($cargoUsuarioSesion != "" and $cargoUsuarioSesion != "cliente"){?>
                             <li class="nav-item">
-                                <a class="nav-link btn" href="<?php echo $URL;?>admin/turnos/nuevo_turno.php">Turnos</a>
+                                <a class="nav-link btn" href="<?php echo $URL;?>admin/clientes">Turnos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn" href="<?php echo $URL;?>/admin">Administrador</a>

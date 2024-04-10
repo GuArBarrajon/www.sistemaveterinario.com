@@ -12,7 +12,7 @@
                             <a href="<?php echo $URL;?>#nosotros" class="btn btn-primary">Sobre nosostros</a><br>
                             <?php 
                                 if ($cargoUsuarioSesion != "" and $cargoUsuarioSesion != "cliente"){?>
-                                    <a class="btn btn-primary" href="<?php echo $URL;?>admin/turnos/nuevo_turno.php">Turnos</a>
+                                    <a class="btn btn-primary" href="<?php echo $URL;?>admin/clientes">Turnos</a>
                             <?php   
                                 }
                                 else{?>
@@ -24,12 +24,12 @@
                         </div>
                         <div class="col-md-4">
                             <h3>Contacto</h3>
-                            <i class="bi bi-telephone"> +54-911-5555-1111</i>
-                            <a href="mailto:veterinaria@gmail.com" class="btn btn-primary"><i class="bi bi-envelope-at"></i> veterinariacudi@outlook.com</a>
+                            <a href="https://wa.me/5491155551111" class="btn btn-primary" target="_blank" title="Whatsapp"><i class="bi bi-telephone"> +54-911-5555-1111</i></a>
+                            <a href="mailto:veterinaria@gmail.com" class="btn btn-primary" target="_blank" title="Enviar correo"><i class="bi bi-envelope-at"></i> veterinariacudi@outlook.com</a>
                             <div class="mx-auto">
-                                <a href="https://twitter.com/ubafvet?lang=es" class="btn btn-primary" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                                <a href="https://www.instagram.com/veterinariasuba/?hl=es" class="btn btn-primary" target="_blank"><i class="bi bi-instagram"></i></a>
-                                <a href="https://www.facebook.com/FvetUBA/?locale=es_LA" class="btn btn-primary" target="_blank"><i class="bi bi-facebook"></i></a>
+                                <a href="https://twitter.com/ubafvet?lang=es" class="btn btn-primary" target="_blank" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                                <a href="https://www.instagram.com/veterinariasuba/?hl=es" class="btn btn-primary" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.facebook.com/FvetUBA/?locale=es_LA" class="btn btn-primary" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
                             </div>
                         </div>
                     </div>

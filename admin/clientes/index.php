@@ -1,16 +1,16 @@
 <?php
 include("../../app/config.php");
 include("../layout/parte1.php");
-include("../../app/controllers/Usuarios/listar_usuarios.php");
+include("../../app/controllers/Usuarios/listar_clientes.php");
 ?>
 
 <div class="container pt-4">
-    <h1>Listado de Usuarios</h1>
+    <h1>Listado de Clientes</h1>
     <div class="row">
         <div class="col-md-12">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Seleccione un usuario para registrarle el turno </b></h3>
+                    <h3 class="card-title"><b>A la derecha puede seleccionar la lista de mascotas del cliente o registrarle un turno</b></h3>
 
                 </div>
                 <div class="card-body" style="display: block;">
@@ -37,7 +37,8 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
                                 echo '<td>'.$usuario['email'].'</td>';?>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="reservar_admin.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-info" title="Solicitar turno"><i class="bi bi-file-font"></i></a>
+                                        <a href="../mascotas/index.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-primary" title="Listar mascotas"><i class="bi bi-gitlab"></i></a>
+                                        <a href="<?php echo $URL?>reservar.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-info" title="Solicitar turno"><i class="bi bi-file-font"></i></a>
                                     </div>
                                 </td>
                                 <?php
@@ -63,12 +64,12 @@ include("../layout/mensaje.php");
             "pageLength": 5,
             "language": {
                 "emptyTable": "No hay información",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-                "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
-                "infoFiltered": "(Filtrado de _MAX_ total Usuarios",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Clientes",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Clientes",
+                "infoFiltered": "(Filtrado de _MAX_ total Clientes",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Usuarios",
+                "lengthMenu": "Mostrar _MENU_ Clientes",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",

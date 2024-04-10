@@ -37,7 +37,7 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="cargo">Cargo</label>
+                                    <label for="cargo">Rol</label>
                                     <input type="text" class="form-control" name="cargo" value="<?php echo $cargo?>" disabled>
                                 </div>
                             </div>

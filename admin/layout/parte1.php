@@ -12,7 +12,7 @@ else{
   $usuarios = $query->fetchAll();
   foreach($usuarios as $usuario){
     $idUsuarioSesion = $usuario['id_usuario'];
-    $nombreUsuarioSesion = $usuario['nombres'];
+    $nombreUsuarioSesion = $usuario['nombres'].' '.$usuario['apellido'];
     $cargoUsuarioSesion = $usuario['cargo'];
   }
   if($cargoUsuarioSesion == "cliente"){
@@ -113,13 +113,13 @@ else{
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo $URL;?>/admin/Usuarios" class="nav-link">
+                <a href="<?php echo $URL;?>admin/Usuarios" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Listado de Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo $URL;?>/admin/Usuarios/create.php" class="nav-link">
+                <a href="<?php echo $URL;?>admin/Usuarios/create.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo Usuario</p>
                 </a>
@@ -142,7 +142,7 @@ else{
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo $URL;?>/admin/productos/create.php" class="nav-link">
+                <a href="<?php echo $URL;?>admin/productos/create.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo Producto</p>
                 </a>
@@ -164,10 +164,85 @@ else{
                   <p>Turnos Solicitados</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-store"> </i>
+              <p>
+                Clientes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo $URL;?>/admin/turnos/nuevo_turno.php" class="nav-link">
+                <a href="<?php echo $URL;?>/admin/clientes" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Nuevo Turno</p>
+                  <p>Listado de Clientes</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-truck"></i>
+              <p>
+                Proveedores
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/admin/proveedores" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Proveedores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>admin/proveedores/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Nuevo Proveedor</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-cart-plus"></i>
+              <p>
+                Compras
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/admin/compras" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Compras</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>admin/compras/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Nueva Compra</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+            <i class="nav-icon fas bi-currency-dollar"></i>
+              <p>
+                Ventas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/admin/clientes" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Clientes</p>
                 </a>
               </li>
             </ul>

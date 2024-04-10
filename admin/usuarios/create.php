@@ -47,7 +47,7 @@ include("../layout/parte1.php");
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="cargo">Cargo*</label>
+                                    <label for="cargo">Rol*</label>
                                     <select id="" class="form-control" name="cargo">
                                         <option value="administrador">Administrador</option>
                                         <option value="cliente">Cliente</option>

@@ -54,13 +54,13 @@ include("../../app/controllers/productos/ver_datos_prod.php");
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="costo">Costo</label>
+                                    <label for="costo">Costo x Unidad</label>
                                     <input type="text" class="form-control" name="costo" value="<?php echo $costo?>" disabled>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="precio">Precio de Venta</label>
+                                    <label for="precio">Precio de Venta x Unidad</label>
                                     <input type="text" class="form-control" name="precio" value="<?php echo $precio?>" disabled>
                                 </div>
                             </div>
@@ -95,7 +95,8 @@ include("../../app/controllers/productos/ver_datos_prod.php");
                                 </div>
                             </div>
                             <div class="col-md-12 p-4 text-center">
-                                <a href="<?php echo $URL;?>/admin/productos" class="btn btn-primary m-1">Volver a la lista</a>
+                                <a href="<?php echo $URL;?>/admin/productos" class="btn btn-primary m-1">Ir a la lista de Productos</a>
+                                <a href="<?php echo $URL;?>/admin/compras" class="btn btn-primary m-1">Ir a la lista de Compras</a>
                             </div>
                         </div>
                 </div>

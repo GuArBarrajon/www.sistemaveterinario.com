@@ -55,8 +55,8 @@ include("../../app/controllers/historiasClinicas/listar_historias.php");
     </div>
     <div class="row">
             <div class="col-md-12 pb-2">
-                <a href="<?php echo $URL;?>/admin/mascotas/index.php?id_usuario=<?php echo $mascota['id_usuario']?>" class="btn btn-success"><i class="bi bi-arrow-left"></i> | Volver a Mascotas</a>
-                <a href="<?php echo $URL;?>/admin/historiasClinicas/create.php?id_mascota=<?php echo $id_mascota?>" class="btn btn-primary">Nueva entrada</a>
+                <a href="<?php echo $URL;?>admin/mascotas/index.php?id_usuario=<?php echo $mascota['id_usuario']?>" class="btn btn-success"><i class="bi bi-arrow-left"></i> | Volver a Mascotas</a>
+                <a href="<?php echo $URL;?>admin/historiasClinicas/create.php?id_mascota=<?php echo $id_mascota?>" class="btn btn-primary">Nueva entrada</a>
             </div>
     </div>
 </div>

@@ -49,7 +49,7 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="cargo">Cargo*</label>
+                                    <label for="cargo">Rol*</label>
                                     <select id="" class="form-control" name="cargo" value="<?php echo $cargo?>" required>
                                         <?php
                                         if($cargo == "administrador"){?>

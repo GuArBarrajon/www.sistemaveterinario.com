@@ -21,7 +21,7 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
                                 <th>Nombres</th>
                                 <th>Apellido</th>
                                 <th>Correo</th>
-                                <th>Cargo</th>
+                                <th>Rol</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -41,7 +41,6 @@ include("../../app/controllers/Usuarios/listar_usuarios.php");
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="show.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-info" title="Ver datos"><i class="bi bi-eye"></i></a>
                                         <a href="update.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-success" title="Editar datos"><i class="bi bi-pencil"></i></a>
-                                        <a href="../mascotas/index.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-primary" title="Listar mascotas"><i class="bi bi-gitlab"></i></a>
                                         <a href="delete.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-danger" title="Borrar usuario"><i class="bi bi-trash"></i></a>
                                     </div>
                                 </td>

@@ -41,7 +41,7 @@ include("../../app/controllers/historiasClinicas/ver_historia.php");
                                     
                                     <div class="row">
                                     <div class="col-md-12 p-4">
-                                        <a href="<?php echo $URL;?>/admin/historiasClinicas/index.php?id_mascota=<?php echo $idMascota?>" class="btn btn-secondary m-1">Cancelar</a>
+                                        <a href="<?php echo $URL;?>admin/historiasClinicas/index.php?id_mascota=<?php echo $idMascota?>" class="btn btn-secondary m-1">Cancelar</a>
                                         <input type="submit" class="btn btn-danger m-1" value="Borrar">
                                     </div>
                                     </div>

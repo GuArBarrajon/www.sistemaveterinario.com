@@ -48,7 +48,7 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                             
                             <div class="row">
                             <div class="col-md-12 p-4">
-                                <a href="<?php echo $URL;?>/admin/mascotas/index.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-secondary m-1">Cancelar</a>
+                                <a href="<?php echo $URL;?>admin/mascotas/index.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-secondary m-1">Cancelar</a>
                                 <input type="submit" class="btn btn-primary m-1" value="Guardar">
                             </div>
                             </div>

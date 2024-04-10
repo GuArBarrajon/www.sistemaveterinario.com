@@ -1,6 +1,5 @@
 <?php
 include("../app/config.php");
-//include("../app/controllers/productos/listar_productos.php");
 include("../layout/parte1.php");
 include("../app/controllers/login/verify_token.php");
 

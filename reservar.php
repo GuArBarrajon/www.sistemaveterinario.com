@@ -50,6 +50,7 @@ include("layout/parte1.php");
                             $('#modalReservas').modal("show");
                             $('#nombreDia').html(dias[numeroDia] + " " + a);
                             $('#nombreDia2').html(dias[numeroDia] + " " + a);
+                            $('#nombreDia3').html(dias[numeroDia] + " " + a);
 
                             //Para verificar los horarios disponibles
                             var fecha = info.dateStr;
@@ -80,7 +81,7 @@ include("layout/parte1.php");
                         </div>
                     </div>
                     <div class="row pt-4">
-                        <div class="col-md-8" id='calendar'></>><br>
+                        <div class="col-md-8" id='calendar'></><br>
 
                         </div>
 
@@ -132,36 +133,30 @@ include("admin/layout/mensaje.php");
                 <div class="col-md-6">
                     <h5 class="text-center">Mañana</h5>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" id="btn_h1" type="button" data-bs-dismiss="modal">8.00</button>
-                        <button class="btn btn-primary" id="btn_h2" type="button" data-bs-dismiss="modal">8.30</button>
-                        <button class="btn btn-primary" id="btn_h3" type="button" data-bs-dismiss="modal">9.00</button>
-                        <button class="btn btn-primary" id="btn_h4" type="button" data-bs-dismiss="modal">9.30</button>
-                        <button class="btn btn-primary" id="btn_h5" type="button" data-bs-dismiss="modal">10.00</button>
-                        <button class="btn btn-primary" id="btn_h6" type="button" data-bs-dismiss="modal">10.30</button>
-                        <button class="btn btn-primary" id="btn_h7" type="button" data-bs-dismiss="modal">11.00</button>
-                        <button class="btn btn-primary" id="btn_h8" type="button" data-bs-dismiss="modal">11.30</button>
-                        <button class="btn btn-primary" id="btn_h9" type="button" data-bs-dismiss="modal">12.00</button>
-                        <button class="btn btn-primary" id="btn_h10" type="button" data-bs-dismiss="modal">12.30</button>
+                        <?php
+                            $btn = 0;
+                            for($h = 8; $h <= 12; $h = $h + 1){
+                                $btn = $btn + 1;?>
+                                <button class="btn btn-primary" id="btn_h<?php echo $btn;?>" type="button" data-bs-dismiss="modal"><?php echo $h.'.00';?></button>
+                                <button class="btn btn-primary" id="btn_h<?php $btn = $btn + 1; echo $btn;?>" type="button" data-bs-dismiss="modal"><?php echo $h.'.30';?></button>
+                            <?php
+                            }
+                        ?>  
                     </div>
                 </div>
                 
                 <div class="col-md-6">
                     <h5 class="text-center">Tarde</h5>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" id="btn_h11" type="button" data-bs-dismiss="modal">13.00</button>
-                        <button class="btn btn-primary" id="btn_h12" type="button" data-bs-dismiss="modal">13.30</button>
-                        <button class="btn btn-primary" id="btn_h13" type="button" data-bs-dismiss="modal">14.00</button>
-                        <button class="btn btn-primary" id="btn_h14" type="button" data-bs-dismiss="modal">14.30</button>
-                        <button class="btn btn-primary" id="btn_h15" type="button" data-bs-dismiss="modal">15.00</button>
-                        <button class="btn btn-primary" id="btn_h16" type="button" data-bs-dismiss="modal">15.30</button>
-                        <button class="btn btn-primary" id="btn_h17" type="button" data-bs-dismiss="modal">16.00</button>
-                        <button class="btn btn-primary" id="btn_h18" type="button" data-bs-dismiss="modal">16.30</button>
-                        <button class="btn btn-primary" id="btn_h19" type="button" data-bs-dismiss="modal">17.00</button>
-                        <button class="btn btn-primary" id="btn_h20" type="button" data-bs-dismiss="modal">17.30</button> 
-                        <button class="btn btn-primary" id="btn_h21" type="button" data-bs-dismiss="modal">18.00</button>
-                        <button class="btn btn-primary" id="btn_h22" type="button" data-bs-dismiss="modal">18.30</button>
-                        <button class="btn btn-primary" id="btn_h23" type="button" data-bs-dismiss="modal">19.00</button>
-                        <button class="btn btn-primary" id="btn_h24" type="button" data-bs-dismiss="modal">19.30</button>                     
+                        <?php
+                            $btn = 10;
+                            for($h = 13; $h <= 19; $h = $h + 1){
+                                $btn = $btn + 1;?>
+                                <button class="btn btn-primary" id="btn_h<?php echo $btn;?>" type="button" data-bs-dismiss="modal"><?php echo $h.'.00';?></button>
+                                <button class="btn btn-primary" id="btn_h<?php $btn = $btn + 1; echo $btn;?>" type="button" data-bs-dismiss="modal"><?php echo $h.'.30';?></button>
+                            <?php
+                            }
+                        ?>                    
                     </div>
                 </div>
             </div>
@@ -175,13 +170,12 @@ include("admin/layout/mensaje.php");
     </div>
 </div>
 
-<!-- Modal Formulario-->
-<div class="modal fade" id="modalFormulario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Formulario Cliente-->
+<div class="modal fade" id="modalFormulario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Solicitar turno para el <span id="nombreDia2"></span></h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div class="row">
@@ -226,7 +220,73 @@ include("admin/layout/mensaje.php");
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <a href="" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</div>
+
+<!-- Modal Formulario administrador-->
+<div class="modal fade" id="modalFormulario2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php 
+    //recupero id de usuario y lo busco
+    $id_usuario = $_GET['id_usuario'];
+    include("app/controllers/Usuarios/ver_datos.php");
+    ?>
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Solicitar turno para el <span id="nombreDia3"></span></h1>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <form action="<?php echo $URL;?>app/controllers/reservas/controller_reservas2.php" method="post">
+                <div class="row">
+                        <div class="col-md-6 my-2">
+                            <label for="">Nombre del usuario</label>
+                            <input type="text" class="form-control" value="<?php echo $nombres." ".$apellido?>" disabled>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label for="">E-mail</label>
+                            <input type="email" class="form-control" value="<?php echo $email?>" disabled>
+                            <input type="text" name="idUsuario" value="<?php echo $id_usuario?>" hidden>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <label for="">Fecha de Reserva</label>
+                            <input type="text" class="form-control" id="fechaReserva3" disabled>
+                            <input type="text" name="fechaReserva"  class="form-control" id="fechaReserva4" hidden>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label for="">Hora</label>
+                            <input type="text" class="form-control" id="horaReserva3" disabled>
+                            <input type="text" name="horaReserva"  class="form-control" id="horaReserva4" hidden>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <label for="">Nombre de la mascota</label>
+                            <input type="text" class="form-control" name="nombreMascota" required>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label for="">Tipo de servicio</label>
+                            <select name="servicio" id="" class="form-control">
+                                <option value="Peluqueria">Peluquería</option>
+                                <option value="Laboratorio">Laboratorio</option>
+                                <option value="Estudios">Estudios</option>
+                                <option value="Consulta">Consulta</option>
+                                <option value="Vacunatorio">Vacunatorio</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" class="btn btn-secondary">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </form>
@@ -240,243 +300,41 @@ include("admin/layout/mensaje.php");
 
 <!-- Reserva de Horarios-->
 <script>
-    $('#btn_h1').click(function(){
-        $('#modalFormulario').modal("show");
+    // A continuación una función para manejar el evento click de los botones
+    function handleButtonClick(hora) {
+        //según sea administrador o cliente llama al formulario adecuado
+        var cargo = '<?php echo $cargoUsuarioSesion;?>';
+        if (cargo == "cliente"){
+            $('#modalFormulario').modal("show");
+            $('#fechaReserva').val(a);
+            $('#fechaReserva2').val(a);
+            $('#horaReserva').val(hora);
+            $('#horaReserva2').val(hora);
+        }
+        else{
+            $('#modalFormulario2').modal("show");
+            $('#fechaReserva3').val(a);
+            $('#fechaReserva4').val(a);
+            $('#horaReserva3').val(hora);
+            $('#horaReserva4').val(hora);
+        }
+    }
 
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h1 = "8.00";
-        $('#horaReserva').val(h1);
-        $('#horaReserva2').val(h1);
-    });
-
-    $('#btn_h2').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var btn_h2 = "8.30";
-        $('#horaReserva').val(h2);
-        $('#horaReserva2').val(h2);
-    });
-
-    $('#btn_h3').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h3 = "9.00";
-        $('#horaReserva').val(h3);
-        $('#horaReserva2').val(h3);
-    });
-
-    $('#btn_h4').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h4 = "9.30";
-        $('#horaReserva').val(h4);
-        $('#horaReserva2').val(h4);
-    });
-
-    $('#btn_h5').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h5 = "10.00";
-        $('#horaReserva').val(h5);
-        $('#horaReserva2').val(h5);
-    });
-
-    $('#btn_h6').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h6 = "10.30";
-        $('#horaReserva').val(h6);
-        $('#horaReserva2').val(h6);
-    });
-
-    $('#btn_h7').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h7 = "11.00";
-        $('#horaReserva').val(h7);
-        $('#horaReserva2').val(h7);
-    });
-
-    $('#btn_h8').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h8 = "11.30";
-        $('#horaReserva').val(h8);
-        $('#horaReserva2').val(h8);
-    });
-
-    $('#btn_h9').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h9 = "12.00";
-        $('#horaReserva').val(h9);
-        $('#horaReserva2').val(h9);
-    });
-
-    $('#btn_h10').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h10 = "12.30";
-        $('#horaReserva').val(h10);
-        $('#horaReserva2').val(h10);
-    });
-
-    $('#btn_h11').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h11 = "13.00";
-        $('#horaReserva').val(h11);
-        $('#horaReserva2').val(h11);
-    });
-
-    $('#btn_h12').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h12 = "13.30";
-        $('#horaReserva').val(h12);
-        $('#horaReserva2').val(h12);
-    });
-
-    $('#btn_h13').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h13 = "14.00";
-        $('#horaReserva').val(h13);
-        $('#horaReserva2').val(h13);
-    });
-
-    $('#btn_h14').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h14 = "14.30";
-        $('#horaReserva').val(h14);
-        $('#horaReserva2').val(h14);
-    });
-
-    $('#btn_h15').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h15 = "15.00";
-        $('#horaReserva').val(h15);
-        $('#horaReserva2').val(h15);
-    });
-
-    $('#btn_h16').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h16 = "15.30";
-        $('#horaReserva').val(h16);
-        $('#horaReserva2').val(h16);
-    });
-
-    $('#btn_h17').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h17 = "16.00";
-        $('#horaReserva').val(h17);
-        $('#horaReserva2').val(h17);
-    });
-
-    $('#btn_h18').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h18 = "16.30";
-        $('#horaReserva').val(h18);
-        $('#horaReserva2').val(h18);
-    });
-
-    $('#btn_h19').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h19 = "17.00";
-        $('#horaReserva').val(h19);
-        $('#horaReserva2').val(h19);
-    });
-
-    $('#btn_h20').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h20 = "17.30";
-        $('#horaReserva').val(h20);
-        $('#horaReserva2').val(h20);
-    });
-
-    $('#btn_h21').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h21 = "18.00";
-        $('#horaReserva').val(h21);
-        $('#horaReserva2').val(h21);
-    });
-
-    $('#btn_h22').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h22 = "18.30";
-        $('#horaReserva').val(h22);
-        $('#horaReserva2').val(h22);
-    });
-
-    $('#btn_h23').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h23 = "19.00";
-        $('#horaReserva').val(h23);
-        $('#horaReserva2').val(h23);
-    });
-
-    $('#btn_h24').click(function(){
-        $('#modalFormulario').modal("show");
-
-        $('#fechaReserva').val(a);
-        $('#fechaReserva2').val(a);
-        var h24 = "19.30";
-        $('#horaReserva').val(h24);
-        $('#horaReserva2').val(h24);
+    // Asignar el evento click a todos los botones usando un selector de clase común
+    $('[id^=btn_h]').click(function() {
+        // Obtener el valor de la hora del id del botón
+        var i = $(this).attr('id').replace('btn_h', '');
+        // se crea un array con los formatos de horas
+        var h = 8;
+        var horario = [];
+        for(var x = 0; x < 24; x++){
+            var hour = h.toString()
+            horario[x] = hour.concat(".00");
+            x++;
+            horario[x] = hour.concat(".30");
+            h++;
+        }
+        // Llamar a la función de manejo del botón con la hora adecuada
+        handleButtonClick(horario[i-1]);
     });
 </script>

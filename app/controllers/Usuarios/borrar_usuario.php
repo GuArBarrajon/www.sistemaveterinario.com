@@ -22,6 +22,11 @@ $sql = "DELETE FROM mascotas WHERE id_usuario = '$id'";
 $query = $pdo->prepare($sql);
 $query->execute();
 
+//también se borran los turnos
+$sql = "DELETE FROM reservas WHERE id_usuario = '$id'";
+$query = $pdo->prepare($sql);
+$query->execute();
+
 //por último, el usuario
 $sql = "DELETE FROM usuarios WHERE id_usuario = :id";
 $query = $pdo->prepare($sql);

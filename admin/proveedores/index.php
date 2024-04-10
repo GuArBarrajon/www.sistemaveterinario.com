@@ -1,19 +1,16 @@
 <?php
 include("../../app/config.php");
 include("../layout/parte1.php");
-
-$id_usuario = $_GET['id_usuario'];
-include("../../app/controllers/mascotas/listar_mascotas.php");
-include("../../app/controllers/Usuarios/ver_datos.php");
+include("../../app/controllers/proveedores/listar_proveedores.php");
 ?>
 
 <div class="container pt-4">
-    <h1>Listado de Mascotas de <?php echo '<b>'.$usuario['nombres'].' '.$usuario['apellido'].'</b>';?></h1>
+    <h1>Listado de Proveedores</h1>
     <div class="row">
         <div class="col-md-12">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title"><b>A la derecha de cada mascota puede acceder a la historia clínica</b></h3>
+                    <h3 class="card-title"><b>Proveedores registrados</b></h3>
 
                 </div>
                 <div class="card-body" style="display: block;">
@@ -22,28 +19,29 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                             <tr style="text-align: center;">
                                 <th>Nro</th>
                                 <th>Nombre</th>
-                                <th>Especie</th>
-                                <th>Raza</th>
-                                <th>Fecha Nacimiento</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $contador = 0;
-                            foreach($mascotas as $mascota){
+                            foreach($proveedores as $prov){
                                 $contador = $contador + 1;
-                                $id_mascota = $mascota['id_mascota'];
+                                $id_proveedor = $prov['id_proveedor'];
                                 echo '<tr>';
                                 echo '<td>'.$contador.'</td>';
-                                echo '<td>'.$mascota['nombre'].'</td>';
-                                echo '<td>'.$mascota['especie'].'</td>';
-                                echo '<td>'.$mascota['raza'].'</td>';
-                                echo '<td>'.$mascota['fecha_nac'].'</td>';?>
+                                echo '<td>'.$prov['nombre'].'</td>';
+                                echo '<td>';
+                                echo '<a href="https://wa.me/549'.$prov['telefono'].'" class="btn" target="_blank" title="Whatsapp"><i class="fas fa-phone"></i>'.' '.$prov['telefono'].'</a>';
+                                echo '</td>';
+                                echo '<td>'.$prov['email'].'</td>';?>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="../historiasClinicas/index.php?id_mascota=<?php echo $id_mascota?>" class="btn btn-info" title="Historia Clínica"><i class="bi bi-clipboard2-pulse"></i></a>
-                                        <a href="delete.php?id_mascota=<?php echo $id_mascota?>" class="btn btn-danger" title="Borrar mascota"><i class="bi bi-trash"></i></a>
+                                        <a href="show.php?id_proveedor=<?php echo $id_proveedor?>" class="btn btn-info" title="Ver datos"><i class="bi bi-eye"></i></a>
+                                        <a href="update.php?id_proveedor=<?php echo $id_proveedor?>" class="btn btn-success" title="Editar datos"><i class="bi bi-pencil"></i></a>
+                                        <a href="delete.php?id_proveedor=<?php echo $id_proveedor?>" class="btn btn-danger" title="Borrar usuario"><i class="bi bi-trash"></i></a>
                                     </div>
                                 </td>
                                 <?php
@@ -55,12 +53,6 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-            <div class="col-md-12 pb-2">
-                <a href="<?php echo $URL;?>/admin/clientes" class="btn btn-success"><i class="bi bi-arrow-left"></i> | Volver a Clientes</a>
-                <a href="<?php echo $URL;?>admin/mascotas/create.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-primary">Nueva mascota</a>
-            </div>
     </div>
 </div>
 
@@ -75,12 +67,12 @@ include("../layout/mensaje.php");
             "pageLength": 5,
             "language": {
                 "emptyTable": "No hay información",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Mascotas",
-                "infoEmpty": "Mostrando 0 a 0 de 0 Mascotas",
-                "infoFiltered": "(Filtrado de _MAX_ total Mascotas",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Proveedores",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Proveedores",
+                "infoFiltered": "(Filtrado de _MAX_ total Proveedores",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Mascotas",
+                "lengthMenu": "Mostrar _MENU_ Proveedores",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",

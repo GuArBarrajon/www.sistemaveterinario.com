@@ -1,19 +1,17 @@
 <?php
 include("../../app/config.php");
 include("../layout/parte1.php");
+include("../../app/controllers/compras/listar_compras.php");
 
-$id_usuario = $_GET['id_usuario'];
-include("../../app/controllers/mascotas/listar_mascotas.php");
-include("../../app/controllers/Usuarios/ver_datos.php");
 ?>
 
 <div class="container pt-4">
-    <h1>Listado de Mascotas de <?php echo '<b>'.$usuario['nombres'].' '.$usuario['apellido'].'</b>';?></h1>
+    <h1>Listado de Compras</h1>
     <div class="row">
         <div class="col-md-12">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title"><b>A la derecha de cada mascota puede acceder a la historia clínica</b></h3>
+                    <h3 class="card-title"><b>Compras realizadas</b></h3>
 
                 </div>
                 <div class="card-body" style="display: block;">
@@ -21,29 +19,40 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                         <thead>
                             <tr style="text-align: center;">
                                 <th>Nro</th>
-                                <th>Nombre</th>
-                                <th>Especie</th>
-                                <th>Raza</th>
-                                <th>Fecha Nacimiento</th>
+                                <th>Nro de compra</th>
+                                <th>Producto</th>
+                                <th>Fecha</th>
+                                <th>Proveedor</th>
+                                <th>Comprobante</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $contador = 0;
-                            foreach($mascotas as $mascota){
+                            foreach($compras as $compra){
                                 $contador = $contador + 1;
-                                $id_mascota = $mascota['id_mascota'];
+                                $id_compra = $compra['id_compra'];
                                 echo '<tr>';
                                 echo '<td>'.$contador.'</td>';
-                                echo '<td>'.$mascota['nombre'].'</td>';
-                                echo '<td>'.$mascota['especie'].'</td>';
-                                echo '<td>'.$mascota['raza'].'</td>';
-                                echo '<td>'.$mascota['fecha_nac'].'</td>';?>
+                                echo '<td>'.$compra['nro_compra'].'</td>';
+                                echo '<td>';
+                                echo '<a class="btn" href="'.$URL.'admin/productos/show.php?id_producto='.$compra['id_producto'].'">'.$compra['pnombre'].'</a>';
+                                echo '</td>';
+                                echo '<td>'.$compra['fecha_compra'].'</td>';
+                                echo '<td>';
+                                echo '<a class="btn" href="'.$URL.'admin/proveedores/show.php?id_proveedor='.$compra['id_proveedor'].'">'.$compra['provnombre'].'</a>';
+                                echo '</td>';
+                                echo '<td>'.$compra['comprobante'].'</td>';
+                                echo '<td>'.$compra['precio_compra'].'</td>';
+                                echo '<td>'.$compra['cantidad'].'</td>';?>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="../historiasClinicas/index.php?id_mascota=<?php echo $id_mascota?>" class="btn btn-info" title="Historia Clínica"><i class="bi bi-clipboard2-pulse"></i></a>
-                                        <a href="delete.php?id_mascota=<?php echo $id_mascota?>" class="btn btn-danger" title="Borrar mascota"><i class="bi bi-trash"></i></a>
+                                        <a href="show.php?id_compra=<?php echo $id_compra?>" class="btn btn-info" title="Ver"><i class="bi bi-eye"></i></a>
+                                        <a href="update.php?id_compra=<?php echo $id_compra?>" class="btn btn-success" title="Editar"><i class="bi bi-pencil"></i></a>
+                                        <a href="delete.php?id_compra=<?php echo $id_compra?>" class="btn btn-danger" title="Borrar"><i class="bi bi-trash"></i></a>
                                     </div>
                                 </td>
                                 <?php
@@ -55,12 +64,6 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-            <div class="col-md-12 pb-2">
-                <a href="<?php echo $URL;?>/admin/clientes" class="btn btn-success"><i class="bi bi-arrow-left"></i> | Volver a Clientes</a>
-                <a href="<?php echo $URL;?>admin/mascotas/create.php?id_usuario=<?php echo $id_usuario?>" class="btn btn-primary">Nueva mascota</a>
-            </div>
     </div>
 </div>
 
@@ -75,12 +78,12 @@ include("../layout/mensaje.php");
             "pageLength": 5,
             "language": {
                 "emptyTable": "No hay información",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Mascotas",
-                "infoEmpty": "Mostrando 0 a 0 de 0 Mascotas",
-                "infoFiltered": "(Filtrado de _MAX_ total Mascotas",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Compras",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Compras",
+                "infoFiltered": "(Filtrado de _MAX_ total Compras",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Mascotas",
+                "lengthMenu": "Mostrar _MENU_ Compras",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",
