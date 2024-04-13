@@ -34,37 +34,47 @@ include("../../app/controllers/productos/ver_datos_prod.php");
                                     <input type="text" class="form-control" name="descripcion" value="<?php echo $descripcion?>" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="stock">Stock</label>
-                                    <input type="number" class="form-control" name="stock" value="<?php echo $stock?>" disabled>
+                                    <?php
+                                    if($stock <= $stockMin){?>
+                                        <label for="stock">Stock</label>
+                                        <input type="number" class="form-control" style="background: #91303b;color: white" title="Ha llegado a su stock mínimo. Hora de reponer" name="stock" value="<?php echo $stock?>" disabled><?php
+                                    }else if ($stock >= $stockMax){?>
+                                        <label for="stock">Stock</label>
+                                        <input type="number" class="form-control" style="background: #91303b;color: white" title="Ha alcanzado su stock máximo. Evite comprar" name="stock" value="<?php echo $stock?>" disabled><?php
+                                    }else{?>
+                                        <label for="stock">Stock</label>
+                                        <input type="number" class="form-control" name="stock" value="<?php echo $stock?>" disabled><?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="stockMin">Stock Mínimo</label>
                                     <input type="number" class="form-control" name="stockMin" value="<?php echo $stockMin?>" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="stockMax">Stock Máximo</label>
                                     <input type="number" class="form-control" name="stockMax" value="<?php echo $stockMax?>" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="costo">Costo x Unidad</label>
                                     <input type="text" class="form-control" name="costo" value="<?php echo $costo?>" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="precio">Precio de Venta x Unidad</label>
+                                    <label for="precio">Precio de Venta/U</label>
                                     <input type="text" class="form-control" name="precio" value="<?php echo $precio?>" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="fechaIngreso">Fecha de Ingreso</label>
                                     <input type="date" class="form-control" name="fechaIngreso" value="<?php echo $fechaIngreso?>" disabled>
@@ -94,7 +104,7 @@ include("../../app/controllers/productos/ver_datos_prod.php");
                                     <img src="<?= $URL."/Images/productos/".$imagen;?>" alt="producto" width="200px">
                                 </div>
                             </div>
-                            <div class="col-md-12 p-4 text-center">
+                            <div class="col-md-12 px-4 text-center">
                                 <a href="<?php echo $URL;?>/admin/productos" class="btn btn-primary m-1">Ir a la lista de Productos</a>
                                 <a href="<?php echo $URL;?>/admin/compras" class="btn btn-primary m-1">Ir a la lista de Compras</a>
                             </div>

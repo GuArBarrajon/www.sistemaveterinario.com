@@ -21,6 +21,7 @@ include("../../app/controllers/productos/listar_productos.php");
                                 <th>Código</th>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
+                                <th>Stock</th>
                                 <th>Precio</th>
                                 <th>Acciones</th>
                             </tr>
@@ -36,6 +37,13 @@ include("../../app/controllers/productos/listar_productos.php");
                                 echo '<td>'.$producto['codigo'].'</td>';
                                 echo '<td>'.$producto['nombre'].'</td>';
                                 echo '<td>'.$producto['descripcion'].'</td>';
+                                if($producto['stock'] <= $producto['stock_minimo']){
+                                    echo '<td style="background: #91303b;color: white" title="Ha llegado a su stock mínimo. Hora de reponer">'.$producto['stock'].'</td>';
+                                }else if ($producto['stock'] >= $producto['stock_maximo']){
+                                    echo '<td style="background: #91303b;color: white" title="Ha alcanzado su stock máximo. Evite comprar">'.$producto['stock'].'</td>';
+                                }else{
+                                    echo '<td>'.$producto['stock'].'</td>';
+                                }
                                 echo '<td>'.$producto['precio'].'</td>';?>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">

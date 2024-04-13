@@ -1,21 +1,8 @@
 <?php
 include("../../config.php");
 
-
 //verificamos que todos los campos hayan sido completados
-if(empty($_POST['id_producto'])){
-    session_start();
-    $_SESSION['mensaje'] = "Seleccione un producto";
-    $_SESSION['icono'] = "error";
-    header('Location: '.$URL.'/admin/compras/create.php');
-}
-else if(empty($_POST['id_proveedor'])){
-    session_start();
-    $_SESSION['mensaje'] = "Seleccione un proveedor";
-    $_SESSION['icono'] = "error";
-    header('Location: '.$URL.'/admin/compras/create.php');
-}
-else if(empty( $_POST['comprobante']) or empty($_POST['cantidad']) or empty($_POST['precio'])){
+if(empty( $_POST['comprobante']) or empty($_POST['cantidad']) or empty($_POST['precio']) or empty($_POST['fechaCompra'])){
     session_start();
     $_SESSION['mensaje'] = "Complete todos los campos";
     $_SESSION['icono'] = "error";
@@ -24,24 +11,23 @@ else if(empty( $_POST['comprobante']) or empty($_POST['cantidad']) or empty($_PO
 else{
     //creamos el nuevo registro de compra
     $pdo->beginTransaction();
-    $sql = "INSERT INTO compras (id_proveedor, id_producto, id_usuario, nro_compra, fecha_compra, comprobante, precio_compra, cantidad, fyh_creacion)
-            VALUES (:id_proveedor, :id_producto, :id_usuario, :nro_compra, :fecha_compra, :comprobante, :precio_compra, :cantidad, :fyh_creacion)";
+    $sql = "Update compras SET id_proveedor = :id_proveedor, fecha_compra = :fecha_compra, comprobante = :comprobante,
+    precio_compra = :precio_compra, cantidad = :cantidad, fyh_actualizacion = :fyh_actualizacion WHERE id_compra = :id_compra";
         $query = $pdo->prepare($sql);
         $query->bindParam('id_proveedor', $_POST['id_proveedor']);
-        $query->bindParam('id_producto', $_POST['id_producto']);
-        $query->bindParam('id_usuario', $_POST['id_usuario']);
-        $query->bindParam('nro_compra', $_POST['numCompra']);
         $query->bindParam('fecha_compra', $_POST['fechaCompra']);
         $query->bindParam('comprobante', $_POST['comprobante']);
         $query->bindParam('precio_compra', $_POST['precio']);
         $query->bindParam('cantidad', $_POST['cantidad']);
-        $query->bindParam('fyh_creacion', $fechaHora);
+        $query->bindParam('fyh_actualizacion', $fechaHora);
+        $query->bindParam('id_compra', $_POST['id_compra']);
 
         if($query->execute()){
             //ahora se actualiza la tabla productos
             $stockAnterior = $_POST['stock'];
+            $cantidadAnterior = $_POST['cantidadAnterior'];
             $cantidad = $_POST['cantidad'];
-            $stock = $stockAnterior + $cantidad;
+            $stock = $stockAnterior + ($cantidad - $cantidadAnterior);
             $costo = $_POST['precio'];
             $precio = $costo +($costo * 0.3);
             $id_prod = $_POST['id_producto'];
@@ -67,14 +53,14 @@ else{
                 session_start();
                 $_SESSION['mensaje'] = "Error: no se pudo registrar en la base de datos";
                 $_SESSION['icono'] = "error";
-                header('Location: '.$URL.'/admin/compras/create.php');
+                header('Location: '.$URL.'/admin/compras/create.php?id_compra='.$_POST['id_compra']);
             }
         }
         else{
             session_start();
             $_SESSION['mensaje'] = "Error: no se pudo registrar en la base de datos";
             $_SESSION['icono'] = "error";
-            header('Location: '.$URL.'/admin/compras/create.php');
+            header('Location: '.$URL.'/admin/compras/create.php?id_compra='.$_POST['id_compra']);
         }
 }
 
