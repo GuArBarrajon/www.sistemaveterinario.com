@@ -240,9 +240,15 @@ else{
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo $URL;?>/admin/clientes" class="nav-link">
+                <a href="<?php echo $URL;?>/admin/ventas" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listado de Clientes</p>
+                  <p>Listado de Ventas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>admin/ventas/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Nueva Venta</p>
                 </a>
               </li>
             </ul>

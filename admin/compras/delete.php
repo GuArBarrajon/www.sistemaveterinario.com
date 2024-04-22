@@ -15,7 +15,7 @@ include("../../app/controllers/compras/ver_compra.php");
             <div class="col-md-12">
                 <div class="card card-outline card-danger" style="background-color: rgb(255, 225, 225);">
                     <div class="card-header">
-                        <h3 class="card-title"><b>Datos completos de la Compra</b></h3>
+                        <h3 class="card-title"><b>Está seguro de eliminar esta entrada?</b></h3>
                     </div>    
                     <div class="card-body">
                             <div class="row">

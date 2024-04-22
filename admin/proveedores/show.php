@@ -53,8 +53,7 @@ include("../../app/controllers/proveedores/ver_datos_proveedor.php");
                                 </div> 
                             </div>
                             <div class="col-md-12 p-4 text-center">
-                                <a href="<?php echo $URL;?>/admin/proveedores" class="col-md-5 btn btn-primary m-1">Ir a la lista de Proveedores</a>
-                                <a href="<?php echo $URL;?>/admin/compras" class="col-md-5 btn btn-primary m-1">Ir a la lista de Compras</a>
+                                <a href="<?php echo $URL;?>/admin/proveedores" class="col-md-5 btn btn-primary m-1">Volver a la lista de Proveedores</a>
                             </div>
                         </div>
                 </div>

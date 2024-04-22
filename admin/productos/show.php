@@ -105,8 +105,7 @@ include("../../app/controllers/productos/ver_datos_prod.php");
                                 </div>
                             </div>
                             <div class="col-md-12 px-4 text-center">
-                                <a href="<?php echo $URL;?>/admin/productos" class="btn btn-primary m-1">Ir a la lista de Productos</a>
-                                <a href="<?php echo $URL;?>/admin/compras" class="btn btn-primary m-1">Ir a la lista de Compras</a>
+                                <a href="<?php echo $URL;?>/admin/productos" class="btn btn-primary m-1">Volder a la lista de Productos</a>
                             </div>
                         </div>
                 </div>

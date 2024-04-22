@@ -1,13 +1,14 @@
 <?php
 include("../../app/config.php");
 include("../layout/parte1.php");
-include("../../app/controllers/productos/listar_productos.php");
 
 //para autocompletar el código de producto 
-$contador = 1;
-foreach($productos as $producto){
-    $contador = $contador + 1;
-}
+$sql ="SELECT COALESCE(MAX(id_producto), 0) AS total FROM productos";
+$query = $pdo->prepare($sql);
+$query->execute();
+$prod = $query->fetch();
+
+$contador = $prod['total'] + 1;
 
 function ceros($numero) {
         $len = 0;

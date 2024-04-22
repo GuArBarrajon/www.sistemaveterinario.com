@@ -13,14 +13,14 @@ include("../../app/controllers/compras/ver_compra.php");
 <div class="modal fade" id="modal-buscar-proveedor">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: #8064A2; color: white;">
+            <div class="modal-header bg-success">
                 <h4 class="modal-title">Seleccione un Proveedor</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body col-md-11">
-                <div class="card-body">
+            <div class="modal-body col-md-12">
+                <div class="table table-responsive">
                     <table id="example2" class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr style="text-align: center;">

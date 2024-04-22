@@ -6,6 +6,7 @@ include("../app/controllers/productos/listar_productos.php");
 include("../app/controllers/reservas/listar_turnos.php");
 include("../app/controllers/proveedores/listar_proveedores.php");
 include("../app/controllers/compras/listar_compras.php");
+include("../app/controllers/ventas/listar_ventas.php");
 ?>
 
 <h2 class="pt-4">Bienvenido al Sistema</h2>
@@ -148,6 +149,33 @@ include("../app/controllers/compras/listar_compras.php");
                         </div>
                     </a>
                     <a href="<?=$URL."admin/compras";?>" class="small-box-footer"  title="Listar Compras">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+        </div>
+        <div class="col-lg-3 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <?php
+                        $contadorVentas = 0;
+                        foreach($ventas as $venta){
+                            $contadorVentas = $contadorVentas + 1;
+                        }
+                        ?>
+                        <h3><?=$contadorVentas; ?></h3>
+                        <?php 
+                            if($contadorVentas == 1){
+                                ?> <p>Venta Registrada</p> <?php
+                            }
+                            else{
+                                ?> <p>Ventas Registradas</p> <?php
+                            }
+                        ?>
+                    </div>
+                    <a href="<?=$URL."admin/ventas/create.php";?>" title="Nueva Venta">
+                        <div class="icon">
+                            <i class="ion bi bi-currency-dollar"></i>
+                        </div>
+                    </a>
+                    <a href="<?=$URL."admin/ventas";?>" class="small-box-footer"  title="Listar Ventas">Más información <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
         </div>
     </div>

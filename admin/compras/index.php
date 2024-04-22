@@ -19,13 +19,13 @@ include("../../app/controllers/compras/listar_compras.php");
                         <thead>
                             <tr style="text-align: center;">
                                 <th>Nro</th>
-                                <th>Nro de compra</th>
+                                <th>Nro compra</th>
                                 <th>Producto</th>
                                 <th>Fecha</th>
                                 <th>Proveedor</th>
                                 <th>Comprobante</th>
                                 <th>Precio</th>
-                                <th>Cantidad</th>
+                                <th>Cant.</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -38,12 +38,90 @@ include("../../app/controllers/compras/listar_compras.php");
                                 echo '<tr>';
                                 echo '<td>'.$contador.'</td>';
                                 echo '<td>'.$compra['nro_compra'].'</td>';
-                                echo '<td>';
-                                echo '<a class="btn" href="'.$URL.'admin/productos/show.php?id_producto='.$compra['id_producto'].'">'.$compra['pnombre'].'</a>';
+                                echo '<td>';?> 
+                                <button type="button" class="btn ml-4" data-toggle="modal" data-target="#modal-ver-producto<?= $compra['id_producto'] ?>"><?= $compra['pnombre']?></button> 
+                                <!--Modal productos-->
+                                <div class="modal fade" id="modal-ver-producto<?= $compra['id_producto']  ?>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <h2 class="p-2">Producto</h2>
+                                            <div class="modal-body col-md-12">
+                                                <div class="table table-responsive">
+                                                        <table id="example2" class="table table-striped table-bordered table-sm">
+                                                            <thead>
+                                                                <tr style="background-color: #8064A2; color: white; text-align: center;">
+                                                                    <th>Cód.</th>
+                                                                    <th>Nombre</th>
+                                                                    <th>Descripción</th>
+                                                                    <th>Stock</th>
+                                                                    <th>Stock Mínimo</th>
+                                                                    <th>Stock Máximo</th>
+                                                                    <th>Costo</th>
+                                                                    <th>Precio</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php
+                                                                $id_producto = $compra['id_producto'];
+                                                                include("../../app/controllers/productos/ver_datos_prod.php");
+                                                                echo '<tr>';
+                                                                echo '<td>'.$codigo.'</td>';
+                                                                echo '<td>'.$nombre.'</td>';
+                                                                echo '<td>'.$descripcion.'</td>';
+                                                                echo '<td>'.$stock.'</td>';
+                                                                echo '<td>'.$stockMin.'</td>';
+                                                                echo '<td>'.$stockMax.'</td>';
+                                                                echo '<td>'.$costo.'</td>';
+                                                                echo '<td>'.$precio.'</td>';
+                                                                echo '</tr>';
+                                                            ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
                                 echo '</td>';
                                 echo '<td>'.$compra['fecha_compra'].'</td>';
-                                echo '<td>';
-                                echo '<a class="btn" href="'.$URL.'admin/proveedores/show.php?id_proveedor='.$compra['id_proveedor'].'">'.$compra['provnombre'].'</a>';
+                                echo '<td>';?> 
+                                <button type="button" class="btn ml-4" data-toggle="modal" data-target="#modal-ver-proveedor<?= $compra['id_proveedor'] ?>"><?= $compra['provnombre']?></button> 
+                                <!--Modal productos-->
+                                <div class="modal fade" id="modal-ver-proveedor<?= $compra['id_proveedor'] ?>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <h2 class="p-2">Proveedor</h2>
+                                            <div class="modal-body col-md-12">
+                                                <div class="table table-responsive">
+                                                        <table id="example2" class="table table-striped table-bordered table-sm">
+                                                            <thead>
+                                                                <tr style="background-color: #8064A2; color: white; text-align: center;">
+                                                                    <th>Nombre</th>
+                                                                    <th>Dirección</th>
+                                                                    <th>Teléfono</th>
+                                                                    <th>Correo</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php
+                                                                $id_proveedor = $compra['id_proveedor'];
+                                                                include("../../app/controllers/proveedores/ver_datos_proveedor.php");
+                                                                echo '<tr>';
+                                                                echo '<td>'.$nombre.'</td>';
+                                                                echo '<td>'.$direccion.'</td>';
+                                                                echo '<td>'.$telefono.'</td>';
+                                                                echo '<td>'.$email.'</td>';
+                                                                echo '</tr>';
+                                                            ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
                                 echo '</td>';
                                 echo '<td>'.$compra['comprobante'].'</td>';
                                 echo '<td>'.$compra['precio_compra'].'</td>';

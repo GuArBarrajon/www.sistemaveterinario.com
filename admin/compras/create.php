@@ -16,8 +16,8 @@ include("../../app/controllers/compras/listar_compras.php");
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body col-md-11">
-                <div class="card-body">
+            <div class="modal-body col-md-12">
+                <div class="table table-responsive">
                         <table id="example1" class="table table-striped table-bordered table-sm">
                             <thead>
                                 <tr style="text-align: center;">
@@ -99,8 +99,8 @@ include("../../app/controllers/compras/listar_compras.php");
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body col-md-11">
-                <div class="card-body">
+            <div class="modal-body col-md-12">
+                <div class="table table-responsive">
                     <table id="example2" class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr style="text-align: center;">
@@ -252,10 +252,13 @@ include("../../app/controllers/compras/listar_compras.php");
                         <div class="row py-2 px-3">
                             <div class="col-md-2">
                                 <?php //calculo el número de compra
-                                    $contadorCompras = 1;
-                                    foreach($compras as $compra){
-                                        $contadorCompras = $contadorCompras + 1;
-                                    }
+                                    $sql ="SELECT COALESCE(MAX(id_compra), 0) AS total FROM compras";
+                                    $query = $pdo->prepare($sql);
+                                    $query->execute();
+                                    $comp = $query->fetch();
+                                    
+                                    $contadorCompras = $comp['total'] + 1;
+                                    
                                 ?>
                                 <label for="">Nro. Compra</label>
                                 <input type="text" class="form-control" value="<?= $contadorCompras ?>" disabled>

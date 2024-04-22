@@ -10,7 +10,7 @@ include("../../app/controllers/historiasClinicas/ver_historia.php");
     <h1>Entrada de la historia clínica seleccionada</h1>
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-outline card-primary" style="background-color: rgb(255, 225, 225);">
+            <div class="card card-outline card-danger" style="background-color: rgb(255, 225, 225);">
                 <div class="card-header">
                     <h3 class="card-title"><b>Está seguro de eliminar esta entrada?</b></h3>
                 </div>    
