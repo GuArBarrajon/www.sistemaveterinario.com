@@ -33,6 +33,7 @@ include("../../app/controllers/reservas/listar_turnos.php");
                             $contador = 0;
                             foreach($turnos as $turno){
                                 $contador = $contador + 1;
+                                $fecha = date ('d/m/Y', strtotime($turno['fecha']));
                                 $id_turno = $turno['id_reserva'];
                                 echo '<tr>';
                                 echo '<td>'.$contador.'</td>';
@@ -41,7 +42,7 @@ include("../../app/controllers/reservas/listar_turnos.php");
                                 echo '<td>'.$turno['email'].'</td>';
                                 echo '<td>'.$turno['nombre_mascota'].'</td>';
                                 echo '<td>'.$turno['tipo_servicio'].'</td>';
-                                echo '<td>'.$turno['fecha'].'</td>';
+                                echo '<td>'.$fecha.'</td>';
                                 echo '<td>'.$turno['hora'].'</td>';?>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">

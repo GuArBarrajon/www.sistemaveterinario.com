@@ -2,10 +2,14 @@
 include("../../config.php");
 
 //verificamos que todos los campos hayan sido completados 
-if(!empty($_POST['nombres']) and !empty($_POST['apellido']) and !empty($_POST['email']) and !empty($_POST['password']) and !empty($_POST['password2'])){
+if(!empty($_POST['nombres']) and !empty($_POST['apellido']) and !empty($_POST['email']) and !empty($_POST['celular']) and !empty($_POST['calle']) and !empty($_POST['altura']) and !empty($_POST['localidad']) and !empty($_POST['password']) and !empty($_POST['password2'])){
     $nombres = $_POST['nombres'];
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
+    $celular = $_POST['celular'];
+    $calle = $_POST['calle'];
+    $altura = $_POST['altura'];
+    $localidad = $_POST['localidad'];
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     $cargo = "cliente";
@@ -31,12 +35,16 @@ if(!empty($_POST['nombres']) and !empty($_POST['apellido']) and !empty($_POST['e
             //encripta la contraseña
             $password = password_hash($password, algo: PASSWORD_DEFAULT);
         
-            $sql = "INSERT INTO usuarios (nombres, apellido, email, password, cargo, fyh_creacion)
-            VALUES (:nombres, :apellido, :email, :password, :cargo, :fyh_creacion)";
+            $sql = "INSERT INTO usuarios (nombres, apellido, email, celular, calle, altura, localidad, password, cargo, fyh_creacion)
+            VALUES (:nombres, :apellido, :email, :celular, :calle, :altura, :localidad, :password, :cargo, :fyh_creacion)";
             $query = $pdo->prepare($sql);
             $query->bindParam('nombres', $nombres);
             $query->bindParam('apellido', $apellido);
             $query->bindParam('email', $email);
+            $query->bindParam('celular', $celular);
+            $query->bindParam('calle', $calle);
+            $query->bindParam('altura', $altura);
+            $query->bindParam('localidad', $localidad);
             $query->bindParam('password', $password);
             $query->bindParam('cargo', $cargo);
             $query->bindParam('fyh_creacion', $fechaHora);

@@ -72,6 +72,7 @@ include("../../app/controllers/ventas/listar_ventas.php");
                             $contadorVent = 0;
                             foreach($ventas as $venta){
                                 $contadorVent = $contadorVent + 1;
+                                $fecha = date ('d/m/Y', strtotime($venta['fecha']));
                                 $id_venta = $venta['id_venta'];
                                 echo '<tr>';
                                 echo '<td>'.$contadorVent.'</td>';
@@ -126,7 +127,7 @@ include("../../app/controllers/ventas/listar_ventas.php");
                                 <?php
                                 echo '</td>';
 
-                                echo '<td>'.$venta['fecha'].'</td>';
+                                echo '<td>'.$fecha.'</td>';
 
                                 $id_usuario = $venta['id_cliente'];
                                 include("../../app/controllers/Usuarios/ver_datos.php");
@@ -138,6 +139,7 @@ include("../../app/controllers/ventas/listar_ventas.php");
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="show.php?id_venta=<?php echo $id_venta?>" class="btn btn-info" title="Ver"><i class="bi bi-eye"></i></a>
                                         <a href="delete.php?id_venta=<?php echo $id_venta?>" class="btn btn-danger" title="Borrar"><i class="bi bi-trash"></i></a>
+                                        <a href="factura.php?id_venta=<?php echo $id_venta?>" class="btn btn-primary" title="Imprimir factura" target="_blank"><i class="bi bi-printer"></i></a>
                                     </div>
                                 </td>
                                 <?php

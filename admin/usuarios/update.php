@@ -37,6 +37,30 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="celular">Celular*</label>
+                                    <input type="text" class="form-control" name="celular" value="<?php echo $celular?>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="calle">Calle*</label>
+                                    <input type="text" class="form-control" name="calle" value="<?php echo $calle?>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="altura">Altura*</label>
+                                    <input type="text" class="form-control" name="altura" value="<?php echo $altura?>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="localidad">Localidad*</label>
+                                    <input type="text" class="form-control" name="localidad" value="<?php echo $localidad?>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label for="password">Contraseña*</label>
                                     <input type="password" class="form-control" name="password">
                                 </div>

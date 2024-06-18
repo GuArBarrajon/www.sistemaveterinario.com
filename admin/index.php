@@ -170,7 +170,7 @@ include("../app/controllers/ventas/listar_ventas.php");
                             }
                         ?>
                     </div>
-                    <a href="<?=$URL."admin/ventas/create.php";?>" title="Nueva Venta">
+                    <a href="<?=$URL."admin/ventas/create.php?desde=admin";?>" title="Nueva Venta">
                         <div class="icon">
                             <i class="ion bi bi-currency-dollar"></i>
                         </div>

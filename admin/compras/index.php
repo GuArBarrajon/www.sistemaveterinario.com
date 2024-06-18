@@ -19,11 +19,11 @@ include("../../app/controllers/compras/listar_compras.php");
                         <thead>
                             <tr style="text-align: center;">
                                 <th>Nro</th>
-                                <th>Nro compra</th>
+                                <th>Nº compra</th>
                                 <th>Producto</th>
                                 <th>Fecha</th>
                                 <th>Proveedor</th>
-                                <th>Comprobante</th>
+                                <th>Comprob.</th>
                                 <th>Precio</th>
                                 <th>Cant.</th>
                                 <th>Acciones</th>
@@ -34,6 +34,7 @@ include("../../app/controllers/compras/listar_compras.php");
                             $contador = 0;
                             foreach($compras as $compra){
                                 $contador = $contador + 1;
+                                $fecha = date ('d/m/Y', strtotime($compra['fecha_compra']));
                                 $id_compra = $compra['id_compra'];
                                 echo '<tr>';
                                 echo '<td>'.$contador.'</td>';
@@ -84,7 +85,7 @@ include("../../app/controllers/compras/listar_compras.php");
                                     </div>
                                 <?php
                                 echo '</td>';
-                                echo '<td>'.$compra['fecha_compra'].'</td>';
+                                echo '<td>'.$fecha.'</td>';
                                 echo '<td>';?> 
                                 <button type="button" class="btn ml-4" data-toggle="modal" data-target="#modal-ver-proveedor<?= $compra['id_proveedor'] ?>"><?= $compra['provnombre']?></button> 
                                 <!--Modal productos-->

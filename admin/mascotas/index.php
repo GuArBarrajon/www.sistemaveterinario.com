@@ -33,13 +33,14 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                             $contador = 0;
                             foreach($mascotas as $mascota){
                                 $contador = $contador + 1;
+                                $fecha = date ('d/m/Y', strtotime($mascota['fecha_nac']));
                                 $id_mascota = $mascota['id_mascota'];
                                 echo '<tr>';
                                 echo '<td>'.$contador.'</td>';
                                 echo '<td>'.$mascota['nombre'].'</td>';
                                 echo '<td>'.$mascota['especie'].'</td>';
                                 echo '<td>'.$mascota['raza'].'</td>';
-                                echo '<td>'.$mascota['fecha_nac'].'</td>';?>
+                                echo '<td>'.$fecha.'</td>';?>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="../historiasClinicas/index.php?id_mascota=<?php echo $id_mascota?>" class="btn btn-info" title="Historia Clínica"><i class="bi bi-clipboard2-pulse"></i></a>

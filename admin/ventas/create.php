@@ -1,6 +1,14 @@
 <?php
 include("../../app/config.php");
-include("../layout/parte1.php");
+
+$desde = $_GET['desde'];
+if($desde =='admin'){
+    include("../layout/parte1.php");
+}
+else{
+    include("../../layout/parte1.php");
+}
+
 include("../../app/controllers/productos/listar_productos.php");
 include("../../app/controllers/Usuarios/listar_clientes.php");
 
@@ -82,7 +90,7 @@ $contadorVentas =$venta['total'] + 1;
                                         <input type="text" class="form-control" name="nombre" id="nombreProducto" disabled>
                                     </div>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="descripcion">Descripción</label>
                                         <input type="text" class="form-control" name="descripcion" id="descripcionProducto" disabled>
@@ -90,7 +98,7 @@ $contadorVentas =$venta['total'] + 1;
                                         <input type="text" class="form-control" name="id_producto" id="idProducto" hidden>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="cantidad">Cantidad</label>
                                         <input type="number" class="form-control" name="cantidad" id="cantidadProducto" min="0" max="5">
@@ -117,7 +125,7 @@ $contadorVentas =$venta['total'] + 1;
                                     }else if(cantidad == ""){
                                         alert ("Debe completar la cantidad");
                                     }else{
-                                        var url = "../../app/controllers/ventas/registrar_carrito.php";
+                                        var url = "../../app/controllers/ventas/registrar_carrito.php?desde=<?= $desde?>";
                                         $.get(url, {id_venta:id_venta, id_producto:id_producto, cantidad:cantidad}, function(datos){
                                             $('#respuesta_carrito').html(datos);
                                         });
@@ -175,6 +183,14 @@ $contadorVentas =$venta['total'] + 1;
                                         $('#apellidoCliente').val(apellidoUsu);
                                         var emailUsu = "<?= $usuario['email']?>";
                                         $('#emailCliente').val(emailUsu);
+                                        var celularUsu = "<?= $usuario['celular']?>";
+                                        $('#celularCliente').val(celularUsu);
+                                        var calleUsu = "<?= $usuario['calle']?>";
+                                        $('#calleCliente').val(calleUsu);
+                                        var alturaUsu = "<?= $usuario['altura']?>";
+                                        $('#alturaCliente').val(alturaUsu);
+                                        var localidadUsu = "<?= $usuario['localidad']?>";
+                                        $('#localidadCliente').val(localidadUsu);
                                         var idUsu = "<?= $usuario['id_usuario']?>";
                                         $('#idCliente').val(idUsu);
 
@@ -260,7 +276,7 @@ $contadorVentas =$venta['total'] + 1;
                                                 echo '<td>'.$subto.'</td>';?>
                                                 <td class="text-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                        <a href="../../app/controllers/ventas/borrar_carrito.php?id_carrito=<?php echo $carrito['id_carrito']?>" class="btn btn-danger" title="Borrar usuario"><i class="bi bi-trash"></i></a>
+                                                        <a href="../../app/controllers/ventas/borrar_carrito.php?id_carrito=<?= $carrito['id_carrito']?>&desde=<?= $desde?>" class="btn btn-danger" title="Borrar usuario"><i class="bi bi-trash"></i></a>
                                                     </div>
                                                 </td>
                                                 <?php
@@ -283,6 +299,7 @@ $contadorVentas =$venta['total'] + 1;
                         <hr>
 
                         <div class="row col-md-12">
+                            <?php if($desde == 'admin'){?>
                                 <div class="px-3" style="display: flex">
                                     <h3>Datos del Cliente </h3>
                                     <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#modal-buscar-cliente"><i class="fas fa-search"></i> Buscar Cliente</button>
@@ -309,12 +326,139 @@ $contadorVentas =$venta['total'] + 1;
                                                         <input type="text" class="form-control" name="email" id="emailCliente" disabled>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="celular">Celular</label>
+                                                        <input type="text" class="form-control" name="celular" id="celularCliente" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label for="calle">Calle</label>
+                                                        <input type="text" class="form-control" name="calle" id="calleCliente" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="altura">Altura</label>
+                                                        <input type="text" class="form-control" name="altura" id="alturaCliente" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label for="localidad">Localidad</label>
+                                                        <input type="text" class="form-control" name="localidad" id="localidadCliente" disabled>
+                                                    </div>
+                                                </div>
         
                                                 <!--input oculto para guardar el id_cliente-->
                                                 <input type="text" class="form-control" name="id_cliente" id="idCliente" hidden>
                                             </div>
                                     </div>
                                 </div>
+                                <?php }
+                                else{?>
+                                <div class="px-3" style="display: flex">
+                                    <h3>Datos del Cliente </h3>
+                                </div>
+                                <!-- Formulario Cliente -->
+                                    <?php 
+                                    $id_usuario = $idUsuarioSesion;
+                                    include("../../app/controllers/Usuarios/ver_datos.php");
+                                    ?>
+                                    <div class="card-body col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="nombre">Nombre</label>
+                                                        <input type="text" class="form-control" name="nombre" value="<?=$nombres?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="apellido">Apellido</label>
+                                                        <input type="text" class="form-control" name="apellido" value="<?=$apellido?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="email">Correo</label>
+                                                        <input type="text" class="form-control" name="email" value="<?=$email?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="celular">Celular</label>
+                                                        <input type="text" class="form-control" name="celular" value="<?=$celular?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label for="calle">Calle</label>
+                                                        <input type="text" class="form-control" name="calle" value="<?=$calle?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="altura">Altura</label>
+                                                        <input type="text" class="form-control" name="altura" value="<?=$altura?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label for="localidad">Localidad</label>
+                                                        <input type="text" class="form-control" name="localidad" value="<?=$localidad?>" disabled>
+                                                    </div>
+                                                </div>
+        
+                                                <!--input oculto para guardar el id_cliente-->
+                                                <input type="text" class="form-control" name="id_cliente" value="<?=$id_usuario?>" hidden>
+                                            </div>
+                                    </div>
+                                </div><hr>
+                                <div class="px-3" style="display: flex">
+                                        <h3>Datos de la Tarjeta </h3>
+                                </div>
+                                <div class="card-body col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="tarjeta">Tipo</label><br>
+                                                <select name="tarjeta" class="form-control">
+                                                    <option value="Visa">Visa</option>
+                                                    <option value="Mastercard">Mastercard</option>
+                                                    <option value="American Express">American Express</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="numero">Número</label>
+                                                <input type="number" class="form-control" name="numero">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="caducidad">Caducidad</label>
+                                                <input type="text" placeholder="MM/YYYY" class="form-control" name="caducidad" maxlength="7">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="codigo">Código de seguridad</label>
+                                                <input type="text" class="form-control" name="codigo" maxlength="3">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="titular">Titular</label>
+                                                <input type="text" class="form-control" name="titular">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php }?>
+
                                 <!-- Botones -->
                                 <div class="row">
                                     <div class="col-md-12 px-4 pb-3">
@@ -332,7 +476,13 @@ $contadorVentas =$venta['total'] + 1;
 </div>
 
 <?php
-include("../layout/parte2.php");    
+if($desde =='admin'){
+    include("../layout/parte2.php");
+}
+else{
+    include("../../layout/parte2.php");
+}
+
 include("../layout/mensaje.php");
 ?>
 

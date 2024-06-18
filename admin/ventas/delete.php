@@ -106,6 +106,30 @@ include("../../app/controllers/ventas/ver_venta.php");
                                                         <input type="text" class="form-control" name="email" value="<?= $email ?>" disabled>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="celular">Celular</label>
+                                                        <input type="text" class="form-control" name="celular" value="<?= $celular ?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="calle">Calle</label>
+                                                        <input type="text" class="form-control" name="calle" value="<?= $calle ?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="altura">Altura</label>
+                                                        <input type="text" class="form-control" name="altura" value="<?= $altura ?>" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="localidad">Localidad</label>
+                                                        <input type="text" class="form-control" name="localidad" value="<?= $localidad ?>" disabled>
+                                                    </div>
+                                                </div>
                                                 <div class="col-md-6 pt-4 pl-5">
                                                     <a href="<?= $URL.'admin/ventas' ?>" class="btn btn-primary">Volver a la Lista</a>
                                                     <input type="submit" class="btn btn-danger m-1" value="Borrar">

@@ -32,10 +32,11 @@ include("../../app/controllers/historiasClinicas/listar_historias.php");
                             $contador = 0;
                             foreach($historias as $historia){
                                 $contador = $contador + 1;
+                                $fecha = date ('d/m/Y', strtotime($historia['fecha_consulta']));
                                 $id_historia = $historia['id_historia'];
                                 echo '<tr>';
                                 echo '<td>'.$contador.'</td>';
-                                echo '<td>'.$historia['fecha_consulta'].'</td>';
+                                echo '<td>'.$fecha.'</td>';
                                 echo '<td>'.$historia['descripcion'].'</td>';
                                 echo '<td>'.$historia['tratamiento'].'</td>';?>
                                 <td class="text-center">

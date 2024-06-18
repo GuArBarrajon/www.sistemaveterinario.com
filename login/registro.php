@@ -33,6 +33,30 @@ include("../layout/parte1.php");
                     </div>
                     <div class="col-md-12 my-2">
                         <div class="form-group">
+                            <label for="">Celular</label>
+                            <input type="text" class="form-control" name="celular" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-2">
+                        <div class="form-group">
+                            <label for="">Calle</label>
+                            <input type="text" class="form-control" name="calle" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-2">
+                        <div class="form-group">
+                            <label for="">Altura</label>
+                            <input type="text" class="form-control" name="altura" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-2">
+                        <div class="form-group">
+                            <label for="">Localidad</label>
+                            <input type="text" class="form-control" name="localidad" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-2">
+                        <div class="form-group">
                             <label for="">Contraseña</label>
                             <input type="password" class="form-control" name="password" required>
                         </div>

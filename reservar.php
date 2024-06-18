@@ -179,7 +179,7 @@ include("admin/layout/mensaje.php");
         </div>
         <div class="modal-body">
             <div class="row">
-                <form action="<?php echo $URL;?>app/controllers/reservas/controller_reservas.php" method="post">
+                <form action="<?php echo $URL;?>app/controllers/reservas/controller_reservas.php?cargo=<?php echo $cargoUsuarioSesion; ?>" method="post">
                 <div class="row">
                         <div class="col-md-6 my-2">
                             <label for="">Nombre del usuario</label>
@@ -245,7 +245,7 @@ include("admin/layout/mensaje.php");
         </div>
         <div class="modal-body">
             <div class="row">
-                <form action="<?php echo $URL;?>app/controllers/reservas/controller_reservas2.php" method="post">
+                <form action="<?php echo $URL;?>app/controllers/reservas/controller_reservas.php?cargo=<?php echo $cargoUsuarioSesion; ?>" method="post">
                 <div class="row">
                         <div class="col-md-6 my-2">
                             <label for="">Nombre del usuario</label>

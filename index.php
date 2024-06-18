@@ -268,6 +268,7 @@ include("layout/parte1.php");
                                         <h5 class="card-title"><?=$producto['nombre'];?></h5>
                                         <p class="card-text"><?=$producto['descripcion'];?></p>
                                         <p class="card-text">$ <?=$producto['precio'];?></p>
+                                        <button class="btn btn-primary" title="comprar" onclick="checkSession()"><i class="bi bi-cart-plus"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -322,3 +323,37 @@ include("layout/parte1.php");
 include("layout/parte2.php");
 include("admin/layout/mensaje.php");
 ?>
+
+<script>
+    function checkSession() {
+    var email_session = '<?php echo $emailSesion;?>';
+
+    if (email_session == '') {
+        $('#modalSession').modal("show");;
+    } else {
+        window.location.href = "<?=$URL.'admin/ventas/create.php?desde=cliente'?>";
+    }
+}
+</script>
+
+<!-- Modal de Session-->
+<div class="modal fade" id="modalSession" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Realizar compras</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Para comprar nuestros productos debe iniciar sesión o registrarse</p>
+            <div class="d-grid gap-2">
+                    <a class="btn btn-primary"  type="button" href="login/index.php">Iniciar sesión</a>
+                    <a class="btn btn-primary" type="button" href="login/registro.php">Registrarse</a>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+        </div>
+    </div>
+</div>

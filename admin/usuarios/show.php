@@ -36,6 +36,30 @@ include("../../app/controllers/Usuarios/ver_datos.php");
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="celular">Celular</label>
+                                    <input type="text" class="form-control" name="celular" value="<?php echo $celular?>" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="calle">Calle</label>
+                                    <input type="text" class="form-control" name="calle" value="<?php echo $calle?>" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="altura">Altura</label>
+                                    <input type="text" class="form-control" name="altura" value="<?php echo $altura?>" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="localidad">Localidad</label>
+                                    <input type="text" class="form-control" name="localidad" value="<?php echo $localidad?>" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label for="cargo">Rol</label>
                                     <input type="text" class="form-control" name="cargo" value="<?php echo $cargo?>" disabled>
                                 </div>

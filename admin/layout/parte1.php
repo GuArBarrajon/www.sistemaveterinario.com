@@ -246,7 +246,7 @@ else{
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo $URL;?>admin/ventas/create.php" class="nav-link">
+                <a href="<?php echo $URL;?>admin/ventas/create.php?desde=admin" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nueva Venta</p>
                 </a>

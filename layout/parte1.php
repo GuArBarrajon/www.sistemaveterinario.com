@@ -37,6 +37,10 @@ if(isset($_SESSION['session email'])){
     
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+        <!-- Font Awesome Iconos -->
+        <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/fontawesome-free/css/all.min.css">
+        
         <!--jQuery-->
         <script src="<?php echo $URL;?>/js/jquery-3.7.1.min.js"></script>
         <script src="<?php echo $URL;?>/Templates/plugins/jquery/jquery.min.js"></script>
@@ -48,6 +52,8 @@ if(isset($_SESSION['session email'])){
         <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
         <link rel="stylesheet" href="<?php echo $URL;?>/Templates/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     </head>
     <body>
         <!--Barra de navegación-->
@@ -116,6 +122,7 @@ if(isset($_SESSION['session email'])){
                                                 <?php echo $emailSesion;?>
                                             </a>
                                             <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item btn" href="<?php echo $URL;?>login/cambiarContra.php">Cambiar contraseña</a></li>
                                                 <li><a class="dropdown-item btn" href="<?php echo $URL;?>/app/controllers/login/cerrar_sesion.php">Cerrar sesión</a></li>
                                             </ul>
                                         </li>

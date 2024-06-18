@@ -18,8 +18,9 @@ else if(empty($_POST['id_cliente'])){
 }
 else{
     //creamos el nuevo registro de compra
-    $sql = "INSERT INTO ventas (id_cliente, total, fecha, fyh_creacion) VALUES (:id_cliente, :total, :fecha, :fyh_creacion)";
+    $sql = "INSERT INTO ventas (id_venta, id_cliente, total, fecha, fyh_creacion) VALUES (:id_venta, :id_cliente, :total, :fecha, :fyh_creacion)";
         $query = $pdo->prepare($sql);
+        $query->bindParam('id_venta', $_POST['numVenta']);
         $query->bindParam('id_cliente', $_POST['id_cliente']);
         $query->bindParam('total', $_POST['total']);
         $query->bindParam('fecha', $_POST['fechaVenta']);
@@ -57,6 +58,29 @@ else{
                 header('Location: '.$URL.'/admin/ventas');
             }
             else{
+                //Primero busco el mail del usuario
+                $id_usuario = $_POST['id_cliente'];
+                include("../Usuarios/ver_datos.php");
+            
+                //luego se manda el email con el detalle de envío de la compra
+                $fecha = date ('d/m/Y', strtotime($_POST['fechaVenta']));
+                $numero = $_POST['numVenta'];
+            
+                $para      = $email;
+                $asunto    = 'Compra realizada en el centro veterinario';
+                $body   = <<<HTML
+                        <h1>Esperamos disfrute su compra</h1>
+                        <p>Hola $nombres, este es un correo generado para recordarle que usted ha realizado una compra con nosotros el día 
+                            $fecha con el número $numero.</p> 
+                        <p>La misma será entregada en $calle $altura de la localidad de $localidad.</p>
+                        HTML;
+                $cabeceras = 'MIME-Version: 1.0' . "\r\n" . 'Content-type: text/html; charset=utf8'. "\r\n" .
+                'From: veterinariacudi@outlook.com' . "\r\n" .
+                'Reply-To: veterinariacudi@outlook.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+                
+                mail($para, $asunto, $body, $cabeceras);
+
                 header('Location: '.$URL);
             }
         }

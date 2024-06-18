@@ -35,6 +35,30 @@ include("../layout/parte1.php");
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="celular">Celular*</label>
+                                    <input type="text" class="form-control" name="celular">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="calle">Calle*</label>
+                                    <input type="text" class="form-control" name="calle">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="altura">Altura*</label>
+                                    <input type="text" class="form-control" name="altura">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="localidad">Localidad*</label>
+                                    <input type="text" class="form-control" name="localidad">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label for="password">Contraseña*</label>
                                     <input type="password" class="form-control" name="password">
                                 </div>

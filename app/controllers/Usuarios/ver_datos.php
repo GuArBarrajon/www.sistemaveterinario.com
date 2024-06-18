@@ -10,6 +10,11 @@ foreach($usuarios as $usuario){
     $nombres = $usuario['nombres'];
     $apellido = $usuario['apellido'];
     $email = $usuario['email'];
+    $celular = $usuario['celular'];
+    $calle = $usuario['calle'];
+    $altura = $usuario['altura'];
+    $localidad = $usuario['localidad'];
+
     $contraseña = $usuario['password'];
     $cargo= $usuario['cargo'];
     $fCreacion =$usuario['fyh_creacion'];
