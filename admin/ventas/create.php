@@ -58,7 +58,22 @@ $contadorVentas =$venta['total'] + 1;
                                     echo '<td>'.$producto['precio'].'</td>';?>
                                     <td class="text-center">
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button class="btn btn-success" title="Seleccionar" id="btn_seleccionar<?= $id_producto ?>"><i class="bi bi-check"></i></button>
+                                            <!--para deshabilitar los productos ya seleccionados en la venta-->
+                                            <?php 
+                                            include("../../app/controllers/ventas/listar_carrito.php");
+                                            $contadorBoton = 0;
+                                            foreach($carritos as $carrito){
+                                                if($carrito['id_producto'] == $id_producto){
+                                                    $contadorBoton = $contadorBoton + 1;
+                                                }
+                                            }
+                                            if($contadorBoton > 0){
+                                            ?>
+                                                <button class="btn btn-danger" title="Ya agregado" id="btn_seleccionar<?= $id_producto ?>" disabled><i class="bi bi-check"></i></button>
+                                            <?php 
+                                            }else{?> 
+                                                <button class="btn btn-success" title="Seleccionar" id="btn_seleccionar<?= $id_producto ?>"><i class="bi bi-check"></i></button>
+                                            <?php } ?>
                                         </div>
                                         <script>
                                         $('#btn_seleccionar<?= $id_producto ?>').click(function(){
@@ -114,16 +129,20 @@ $contadorVentas =$venta['total'] + 1;
                         <div class="pb-3">
                             <button class="btn btn-primary" style="float:right" id="guardar-carrito">Registrar</button>
                             <div id="respuesta_carrito"></div>
+                            <!--script para capturar el evento del botón registrar producto-->
                             <script>
                                 $('#guardar-carrito').click(function(){
                                     var id_venta = "<?= $contadorVentas?>";
                                     var id_producto = $('#idProducto').val();
                                     var cantidad = $('#cantidadProducto').val();
+                                    var stock = $('#cantidadProducto').attr('max');
 
                                     if(id_producto == ""){
                                         alert ("Debe seleccionar un producto");
                                     }else if(cantidad == ""){
                                         alert ("Debe completar la cantidad");
+                                    }else if(cantidad > parseInt(stock)){
+                                        alert ("No hay suficiente cantidad del producto en stock");
                                     }else{
                                         var url = "../../app/controllers/ventas/registrar_carrito.php?desde=<?= $desde?>";
                                         $.get(url, {id_venta:id_venta, id_producto:id_producto, cantidad:cantidad}, function(datos){
