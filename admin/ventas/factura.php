@@ -170,7 +170,7 @@ $style = array(
     'module_height' => 1 // height of a single module in points
 );
 
-$QR = 'Factura realizada por el sistema veterinario de Gustavo Barrajón, al cliente y esta factura se genero el ';
+$QR = 'Factura realizada por el sistema veterinario de Gustavo Barrajón, al cliente '.$cliente['nombres'].' '.$cliente['apellido'].' y esta factura se genero el '.$fecha;
 $pdf->write2DBarcode($QR,'QRCODE,L',  160,230,35,35, $style);
 
 
