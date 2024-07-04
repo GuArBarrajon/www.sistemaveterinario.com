@@ -48,7 +48,7 @@ include("layout/parte1.php");
                     </button>
                 </div>
             </section>
-            <section class="info" id="nosotros">
+            <section class="info fondo mb-3" id="nosotros">
                 <div class="container-fluid p-5">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
@@ -71,7 +71,7 @@ include("layout/parte1.php");
                 </div>
             </section>
 
-            <section class="servicios p-2" id="servicios">
+            <section class="servicios footer p-2" id="servicios">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -122,7 +122,7 @@ include("layout/parte1.php");
                 </div>
             </section>
 
-            <section class="clientes p-2">
+            <section class="clientes p-2 mb-3">
                 <div class="container">
                     <h1 style="margin: 15px;"><br>Testimonios de Clientes</h1>
                     <div class="row">
@@ -249,8 +249,8 @@ include("layout/parte1.php");
                 </div>
             </section>
 
-            <section class="productos ip-5" id="productos">
-                <div class="container footer">
+            <section class="productos footer ip-5 mb-3" id="productos">
+                <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <br>
@@ -279,35 +279,37 @@ include("layout/parte1.php");
                 </div><br>
             </section>
 
-            <section class="galeria container" id="galeria">
-                <div class="row">
-                    <div class="col-md-12">
-                        <br>
-                        <h1>Galería</h1>
+            <section class="galeria fondo" id="galeria">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <br>
+                            <h1>Galería</h1>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-4 foto">
+                            <img src="<?php echo $URL;?>/Images/michi.jpg" alt="gato" width="100%">
+                        </div>
+                        <div class="col-md-4 foto">
+                            <img src="<?php echo $URL;?>/Images/perros.jpg" alt="perros" width="100%">
+                        </div>
+                        <div class="col-md-4 foto">
+                            <img src="<?php echo $URL;?>/Images/perroP.jpg" alt="perro" width="100%">
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-4 foto">
+                            <img src="<?php echo $URL;?>/Images/caballo.jpg" alt="caballo" width="100%">
+                        </div>
+                        <div class="col-md-4 foto">
+                            <img src="<?php echo $URL;?>/Images/perros-lago.jpg" alt="perros" width="100%">
+                        </div>
+                        <div class="col-md-4 foto">
+                            <img src="<?php echo $URL;?>/Images/perros-duermen.jpg" alt="perros" width="100%">
+                        </div>
+                    </div><br>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/michi.jpg" alt="gato" width="100%">
-                    </div>
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/perros.jpg" alt="perros" width="100%">
-                    </div>
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/perroP.jpg" alt="perro" width="100%">
-                    </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/caballo.jpg" alt="caballo" width="100%">
-                    </div>
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/perros-lago.jpg" alt="perros" width="100%">
-                    </div>
-                    <div class="col-md-4 foto">
-                        <img src="<?php echo $URL;?>/Images/perros-duermen.jpg" alt="perros" width="100%">
-                    </div>
-                </div><br>
             </section>
             
 

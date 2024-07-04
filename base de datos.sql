@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2024 a las 08:18:10
+-- Tiempo de generación: 04-07-2024 a las 11:40:34
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.5
 
@@ -14,6 +14,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `veterinaria`
 --
+CREATE DATABASE IF NOT EXISTS `veterinaria` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `veterinaria`;
 
 -- --------------------------------------------------------
 
@@ -27,7 +29,7 @@ CREATE TABLE `carrito` (
   `id_producto` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `fyh_creacion` datetime NOT NULL,
-  `fyh_actualizacion` datetime NOT NULL
+  `fyh_actualizacion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -52,7 +54,11 @@ INSERT INTO `carrito` (`id_carrito`, `id_venta`, `id_producto`, `cantidad`, `fyh
 (52, 24, 9, 1, '2024-06-17 20:46:25', '0000-00-00 00:00:00'),
 (53, 25, 9, 1, '2024-06-17 20:47:48', '0000-00-00 00:00:00'),
 (55, 26, 9, 1, '2024-06-18 02:16:31', '0000-00-00 00:00:00'),
-(56, 27, 12, 1, '2024-06-18 02:17:38', '0000-00-00 00:00:00');
+(56, 27, 12, 1, '2024-06-18 02:17:38', '0000-00-00 00:00:00'),
+(72, 28, 9, 1, '2024-06-28 00:34:54', '0000-00-00 00:00:00'),
+(74, 28, 12, 2, '2024-06-28 00:35:47', '0000-00-00 00:00:00'),
+(75, 29, 9, 1, '2024-06-28 00:38:01', '0000-00-00 00:00:00'),
+(76, 29, 11, 1, '2024-06-28 00:38:14', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -71,7 +77,7 @@ CREATE TABLE `compras` (
   `precio_compra` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
   `fyh_creacion` datetime NOT NULL,
-  `fyh_actualizacion` datetime NOT NULL
+  `fyh_actualizacion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -164,10 +170,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `codigo`, `nombre`, `descripcion`, `imagen`, `stock`, `stock_minimo`, `stock_maximo`, `costo`, `precio`, `fecha_ingreso`, `fyh_creacion`, `fyh_actualizacion`, `id_usuario`) VALUES
-(9, 'p00001', 'Pretal ', 'Arnes Alitas Regulable Con Correa Para Gatos', '2023-12-25-03-57-54pretal gato.webp', 12, 5, 20, 3400, 4420, '2023-12-05', '2024-04-13 09:27:15', '2024-06-18 02:16:46', 1),
+(9, 'p00001', 'Pretal ', 'Arnes Alitas Regulable Con Correa Para Gatos', '2023-12-25-03-57-54pretal gato.webp', 10, 5, 20, 3400, 4420, '2023-12-05', '2024-04-13 09:27:15', '2024-06-28 00:38:55', 1),
 (10, 'p00002', 'Shampoo Perros Gatos', ' Espuma Baño Seco + Rasqueta Masajeador', '2023-12-25-04-00-10shampu perro.webp', 10, 5, 20, 5000, 6500, '2023-12-03', '2023-12-25 04:00:10', '2024-04-29 00:08:56', 1),
-(11, 'p00003', 'Correa De Perros', ' 5 Metros Larga Reforzada Mosquetón Grande', '2023-12-25-04-01-06correa.webp', 19, 5, 25, 7000, 9100, '2023-12-18', '2023-12-25 04:01:06', '2024-06-17 20:45:51', 1),
-(12, 'p00004', 'Pedigree Óptima Digestión Etapa 2', 'Alimento  para perro adulto todos los tamaños sabor carne, pollo y cereales en bolsa de 21 kg', '2023-12-25-04-02-22alimneto perro.webp', 35, 10, 50, 23100, 30030, '2023-12-14', '2024-04-09 23:14:45', '2024-06-18 02:17:46', 1);
+(11, 'p00003', 'Correa De Perros', ' 5 Metros Larga Reforzada Mosquetón Grande', '2023-12-25-04-01-06correa.webp', 18, 5, 25, 7000, 9100, '2023-12-18', '2023-12-25 04:01:06', '2024-06-28 00:38:55', 1),
+(12, 'p00004', 'Pedigree Óptima Digestión Etapa 2', 'Alimento  para perro adulto todos los tamaños sabor carne, pollo y cereales en bolsa de 21 kg', '2023-12-25-04-02-22alimneto perro.webp', 33, 10, 50, 23100, 30030, '2023-12-14', '2024-04-09 23:14:45', '2024-06-28 00:36:25', 1);
 
 -- --------------------------------------------------------
 
@@ -182,7 +188,7 @@ CREATE TABLE `proveedores` (
   `email` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `direccion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `fyh_creacion` datetime NOT NULL,
-  `fyh_actualizacion` datetime NOT NULL
+  `fyh_actualizacion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -213,7 +219,7 @@ CREATE TABLE `reservas` (
   `end` date NOT NULL,
   `color` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `fyh_creacion` datetime NOT NULL,
-  `fyh_actualizacion` datetime NOT NULL
+  `fyh_actualizacion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -243,12 +249,6 @@ INSERT INTO `reservas` (`id_reserva`, `id_usuario`, `nombre_mascota`, `tipo_serv
 (25, 9, 'Pepa', 'Estudios', '2024-04-18', '8.00', 'Estudios', '2024-04-18', '2024-04-18', '#76D7C4', '2024-04-06 04:55:05', '2024-04-06 04:55:05'),
 (26, 9, 'Pepa', 'Consulta', '2024-04-18', '9.00', 'Consulta', '2024-04-18', '2024-04-18', '#D68910', '2024-04-06 04:57:23', '2024-04-06 04:57:23'),
 (27, 11, 'Lucho', 'Vacunatorio', '2024-04-19', '11.00', 'Vacunatorio', '2024-04-19', '2024-04-19', '#9B59B6 ', '2024-04-06 04:58:09', '2024-04-06 04:58:09'),
-(28, 33, 'Loli', 'Estudios', '2024-05-10', '13.00', 'Estudios', '2024-05-10', '2024-05-10', '#76D7C4', '2024-04-06 06:37:49', '2024-04-06 06:37:49'),
-(29, 33, 'Ruperto', 'Consulta', '2024-04-12', '19.30', 'Consulta', '2024-04-12', '2024-04-12', '#D68910', '2024-04-06 07:17:53', '2024-04-06 07:17:53'),
-(30, 33, 'Ruperto', 'Peluqueria', '2024-05-04', '16.30', 'Peluqueria', '2024-05-04', '2024-05-04', '#5DADE2', '2024-04-06 07:19:49', '2024-04-06 07:19:49'),
-(31, 33, 'Rabito', 'Peluqueria', '2024-05-11', '15.00', 'Peluqueria', '2024-05-11', '2024-05-11', '#5DADE2', '2024-04-06 08:19:08', '2024-04-06 08:19:08'),
-(32, 33, 'Loli', 'Vacunatorio', '2024-05-11', '17.30', 'Vacunatorio', '2024-05-11', '2024-05-11', '#9B59B6 ', '2024-04-06 08:19:55', '2024-04-06 08:19:55'),
-(33, 33, 'Loli', 'Consulta', '2024-04-23', '10.30', 'Consulta', '2024-04-23', '2024-04-23', '#D68910', '2024-04-06 09:02:36', '2024-04-06 09:02:36'),
 (35, 9, 'Marita', 'Peluqueria', '2024-05-15', '9.30', 'Peluqueria', '2024-05-15', '2024-05-15', '#5DADE2', '2024-04-06 09:17:56', '2024-04-06 09:17:56'),
 (36, 13, 'Negro', 'Consulta', '2024-05-03', '16.30', 'Consulta', '2024-05-03', '2024-05-03', '#D68910', '2024-04-06 21:13:02', '2024-04-06 21:13:02'),
 (37, 13, 'Negro', 'Laboratorio', '2024-05-02', '8.30', 'Laboratorio', '2024-05-02', '2024-05-02', '#EDBB99', '2024-04-06 21:18:26', '2024-04-06 21:18:26'),
@@ -260,25 +260,16 @@ INSERT INTO `reservas` (`id_reserva`, `id_usuario`, `nombre_mascota`, `tipo_serv
 (45, 5, 'Rabito', 'Peluqueria', '2024-06-20', '11.00', 'Peluqueria', '2024-06-20', '2024-06-20', '#5DADE2', '2024-06-17 12:52:45', '2024-06-17 12:52:45'),
 (46, 9, 'Rabo', 'Consulta', '2024-06-21', '14.00', 'Consulta', '2024-06-21', '2024-06-21', '#D68910', '2024-06-17 12:55:11', '2024-06-17 12:55:11'),
 (47, 14, 'Petiso', 'Estudios', '2024-06-21', '15.00', 'Estudios', '2024-06-21', '2024-06-21', '#76D7C4', '2024-06-17 12:55:41', '2024-06-17 12:55:41'),
-(48, 33, 'Muleka', 'Vacunatorio', '2024-06-28', '15.00', 'Vacunatorio', '2024-06-28', '2024-06-28', '#9B59B6 ', '2024-06-17 19:46:17', '2024-06-17 19:46:17'),
-(49, 44, 'Rodolfo', 'Laboratorio', '2024-06-29', '8.30', 'Laboratorio', '2024-06-29', '2024-06-29', '#EDBB99', '2024-06-18 01:03:10', '2024-06-18 01:03:10'),
-(50, 44, 'Rodolfo', 'Consulta', '2024-06-29', '11.00', 'Consulta', '2024-06-29', '2024-06-29', '#D68910', '2024-06-18 01:05:21', '2024-06-18 01:05:21'),
 (51, 5, 'Petisa', 'Vacunatorio', '2024-07-04', '11.30', 'Vacunatorio', '2024-07-04', '2024-07-04', '#9B59B6 ', '2024-06-18 01:08:36', '2024-06-18 01:08:36'),
 (52, 9, 'Felipa', 'Consulta', '2024-07-06', '15.00', 'Consulta', '2024-07-06', '2024-07-06', '#D68910', '2024-06-18 01:18:28', '2024-06-18 01:18:28'),
 (53, 23, 'Lucho', 'Laboratorio', '2024-07-10', '9.00', 'Laboratorio', '2024-07-10', '2024-07-10', '#EDBB99', '2024-06-18 01:21:05', '2024-06-18 01:21:05'),
 (54, 11, 'Rabo', 'Estudios', '2024-07-03', '10.00', 'Estudios', '2024-07-03', '2024-07-03', '#76D7C4', '2024-06-18 01:24:15', '2024-06-18 01:24:15'),
 (55, 13, 'Marixa', 'Peluqueria', '2024-07-04', '16.30', 'Peluqueria', '2024-07-04', '2024-07-04', '#5DADE2', '2024-06-18 01:26:03', '2024-06-18 01:26:03'),
-(56, 44, 'Muleka', 'Estudios', '2024-07-04', '10.00', 'Estudios', '2024-07-04', '2024-07-04', '#76D7C4', '2024-06-18 01:27:28', '2024-06-18 01:27:28'),
 (57, 26, 'Pedro', 'Consulta', '2024-07-04', '12.00', 'Consulta', '2024-07-04', '2024-07-04', '#D68910', '2024-06-18 01:28:07', '2024-06-18 01:28:07'),
 (58, 22, 'Super', 'Consulta', '2024-07-05', '12.30', 'Consulta', '2024-07-05', '2024-07-05', '#D68910', '2024-06-18 01:30:03', '2024-06-18 01:30:03'),
 (59, 24, 'Colita', 'Consulta', '2024-07-05', '12.00', 'Consulta', '2024-07-05', '2024-07-05', '#D68910', '2024-06-18 01:37:30', '2024-06-18 01:37:30'),
-(60, 44, 'Muleka', 'Vacunatorio', '2024-07-05', '10.30', 'Vacunatorio', '2024-07-05', '2024-07-05', '#9B59B6 ', '2024-06-18 01:38:04', '2024-06-18 01:38:04'),
-(61, 42, 'Petiso', 'Vacunatorio', '2024-07-19', '17.30', 'Vacunatorio', '2024-07-19', '2024-07-19', '#9B59B6 ', '2024-06-18 01:39:13', '2024-06-18 01:39:13'),
-(62, 44, 'Muleka', 'Consulta', '2024-07-25', '16.00', 'Consulta', '2024-07-25', '2024-07-25', '#D68910', '2024-06-18 01:40:35', '2024-06-18 01:40:35'),
 (63, 13, 'Chacho', 'Estudios', '2024-07-23', '10.00', 'Estudios', '2024-07-23', '2024-07-23', '#76D7C4', '2024-06-18 01:56:37', '2024-06-18 01:56:37'),
 (64, 22, 'Super', 'Peluqueria', '2024-07-27', '16.30', 'Peluqueria', '2024-07-27', '2024-07-27', '#5DADE2', '2024-06-18 02:01:19', '2024-06-18 02:01:19'),
-(65, 44, 'Rodolfo', 'Peluqueria', '2024-08-09', '14.30', 'Peluqueria', '2024-08-09', '2024-08-09', '#5DADE2', '2024-06-18 02:01:47', '2024-06-18 02:01:47'),
-(66, 44, 'Muleka', 'Estudios', '2024-07-06', '9.00', 'Estudios', '2024-07-06', '2024-07-06', '#76D7C4', '2024-06-18 02:03:13', '2024-06-18 02:03:13'),
 (67, 13, 'Petiso', 'Vacunatorio', '2024-07-06', '13.00', 'Vacunatorio', '2024-07-06', '2024-07-06', '#9B59B6 ', '2024-06-18 02:03:45', '2024-06-18 02:03:45');
 
 -- --------------------------------------------------------
@@ -327,10 +318,7 @@ INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellido`, `email`, `celular`,
 (24, 'Pedro', 'Pérez', 'p@pedrop.com', 1144445555, 'Calle del Pasado', 147, 'González Catán', '$2y$10$Ky7EhIZwnzWnRSeOyNd53e0wBOeZPwO66U/9gi8DKOskGfZxDfOFK', 'cliente', '2024-03-02 15:49:32', '2024-04-07 02:53:12', NULL, NULL),
 (25, 'Diego', 'García', 'dg@dgsoluciones.com', 1144445555, 'Avenida del Futuro', 159, 'Laferrere', '$2y$10$Lk1uzowz70j55sulGqVLWeLkQW.ZsVgPBzIGsa2LcXjCoXQQDuKSm', 'cliente', '2024-03-02 15:59:30', NULL, NULL, NULL),
 (26, 'Ariel', 'Alvarez', 'aalvarez@gmail.com', 1144445555, 'Calle de la Amistad', 1236, 'González Catán', '$2y$10$xyOwYZvMVPhQ36pZ7qGzl.eFTLkD7cUcF6//.Xz3xJnPj0OFDWSCS', 'cliente', '2024-03-02 16:09:06', NULL, NULL, NULL),
-(33, 'Gustavo', 'Barrajón', 'gustavobarrajon@hotmail.com', 1144445555, 'Avenida de la Felicidad ', 1258, 'Laferrere', '$2y$10$sQrUFhCf3vjK3303fLOlU.KdNxUP5jMofSPv9NQLZ992mNQ95X3SO', 'cliente', '2024-04-06 03:12:31', '2024-06-17 21:45:43', NULL, NULL),
-(37, 'Luis', 'Pérez', 'lperez@gmail.com', 1144445555, 'Calle de los Secretos', 122, 'Laferrere', '$2y$10$3aBv5z82XmM35QZazQP8Ae4KjnVADFN2gQWRVopn.g3iqzeiLcB6G', 'cliente', '2024-04-07 04:15:16', NULL, NULL, NULL),
-(42, 'Gustavo', 'Barrajón', 'gustavoarielbarrajon@gmail.com', 1133445566, 'Lamía', 111, 'González Catán', '$2y$10$ElfId1RWEOgrQjIreeIFQuVGovDe/g8ShIz50bGDYUR5tCP8BYXxS', 'cliente', '2024-06-18 00:08:11', NULL, NULL, NULL),
-(44, 'Gustavo', 'Barrajón', 'guarba@hotmail.com', 1133445566, 'Lamía', 111, 'González Catán', '$2y$10$GdZSpU3dn.h0WATq8ez2o.zj6BP6ruaqJ9jNYlmBcip0ZFOiiBPiq', 'cliente', '2024-06-18 00:31:45', NULL, NULL, NULL);
+(37, 'Luis', 'Pérez', 'lperez@gmail.com', 1144445555, 'Calle de los Secretos', 122, 'Laferrere', '$2y$10$3aBv5z82XmM35QZazQP8Ae4KjnVADFN2gQWRVopn.g3iqzeiLcB6G', 'cliente', '2024-04-07 04:15:16', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -343,7 +331,7 @@ CREATE TABLE `ventas` (
   `id_cliente` int(11) NOT NULL,
   `total` float NOT NULL,
   `fyh_creacion` datetime NOT NULL,
-  `fyh_actualizacion` datetime NOT NULL,
+  `fyh_actualizacion` datetime DEFAULT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -366,7 +354,9 @@ INSERT INTO `ventas` (`id_venta`, `id_cliente`, `total`, `fyh_creacion`, `fyh_ac
 (24, 9, 4420, '2024-06-17 20:46:38', '0000-00-00 00:00:00', '2024-06-17'),
 (25, 33, 4420, '2024-06-17 20:47:53', '0000-00-00 00:00:00', '2024-06-17'),
 (26, 23, 4420, '2024-06-18 02:16:46', '0000-00-00 00:00:00', '2024-06-18'),
-(27, 44, 30030, '2024-06-18 02:17:46', '0000-00-00 00:00:00', '2024-06-18');
+(27, 44, 30030, '2024-06-18 02:17:46', '0000-00-00 00:00:00', '2024-06-18'),
+(28, 5, 64480, '2024-06-28 00:36:25', '0000-00-00 00:00:00', '2024-06-28'),
+(29, 11, 13520, '2024-06-28 00:38:55', '0000-00-00 00:00:00', '2024-06-28');
 
 --
 -- Índices para tablas volcadas
@@ -440,7 +430,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
